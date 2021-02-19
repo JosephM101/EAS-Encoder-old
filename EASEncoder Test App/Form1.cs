@@ -66,7 +66,7 @@ namespace EASEncoder_Test_App
                 _selectedCounty = null;
                 foreach (
                     var thisCounty in
-                        MessageRegions.Counties.Where(x => x.state.Id == _selectedState.Id).OrderBy(x => x.Name))
+                        MessageRegions.Counties.Where(x => x.State.Id == _selectedState.Id).OrderBy(x => x.Name))
                 {
                     comboCounty.Items.Add(thisCounty.Name);
                 }
@@ -77,7 +77,7 @@ namespace EASEncoder_Test_App
         {
             _selectedCounty =
                 MessageRegions.Counties.FirstOrDefault(
-                    x => x.state.Id == _selectedState.Id && x.Name == comboCounty.Text);
+                    x => x.State.Id == _selectedState.Id && x.Name == comboCounty.Text);
         }
 
         private void comboCode_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,6 +95,7 @@ namespace EASEncoder_Test_App
             SaveAudioAs();
         }
 
+        /*
         void AudioToAppDir()
         {
             if (!ValidateInput())
@@ -111,6 +112,7 @@ namespace EASEncoder_Test_App
             EASEncoder.EASEncoder.CreateNewMessage(newMessage, chkEbsTones.Checked, chkNwsTone.Checked,
                 formatAnnouncement(txtAnnouncement.Text));
         }
+        */
 
         internal string ZeroPad(string String, int Length)
         {
@@ -224,8 +226,10 @@ namespace EASEncoder_Test_App
                 chkNwsTone.Checked, formatAnnouncement(txtAnnouncement.Text));
             btnGeneratePlay.Text = "Stop Playing";
             WaveStream mainOutputStream = new RawSourceWaveStream(messageStream, new WaveFormat());
-            var volumeStream = new WaveChannel32(mainOutputStream);
-            volumeStream.PadWithZeroes = false;
+            var volumeStream = new WaveChannel32(mainOutputStream)
+            {
+                PadWithZeroes = false
+            };
 
             player = new WaveOutEvent();
             player.PlaybackStopped += (o, args) =>
@@ -332,11 +336,6 @@ namespace EASEncoder_Test_App
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click_2(object sender, EventArgs e)
         {
             try
@@ -355,7 +354,7 @@ namespace EASEncoder_Test_App
                 comboCounty.SelectedIndex = i;
                 _selectedCounty =
                MessageRegions.Counties.FirstOrDefault(
-                   x => x.state.Id == _selectedState.Id && x.Name == comboCounty.Text);
+                   x => x.State.Id == _selectedState.Id && x.Name == comboCounty.Text);
 
                 if (comboState.SelectedIndex >= 0 && comboCounty.SelectedIndex >= 0 && !Regions.Exists(x => x.County.Id == _selectedCounty.Id && x.State.Id == _selectedState.Id))
                 {
@@ -368,11 +367,6 @@ namespace EASEncoder_Test_App
                     _selectedCounty = null;
                 }
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void chkEbsTones_CheckedChanged(object sender, EventArgs e)

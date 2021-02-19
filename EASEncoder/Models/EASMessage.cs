@@ -3516,7 +3516,7 @@ namespace EASEncoder.Models
         private readonly string _originator;
         private readonly List<SAMERegion> _regions;
         private readonly string _sender;
-        private DateTime _start;
+        private readonly DateTime _start;
 
         public EASMessage(string Originator, string Code, List<SAMERegion> Regions, string Length,
             DateTime Start,

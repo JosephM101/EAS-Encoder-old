@@ -6,12 +6,12 @@
         {
             Id = id;
             Name = name;
-            state = State;
+            this.State = State;
         }
 
         public int Id { private set; get; }
         public string Name { private set; get; }
-        public SAMEState state { private set; get; }
+        public SAMEState State { private set; get; }
         public string Value => Name;
     }
 }

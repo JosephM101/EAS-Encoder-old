@@ -34,7 +34,7 @@ namespace EASEncoder
         private static bool _useNwsTone;
         private static string _announcement = string.Empty;
 
-        private static Dictionary<decimal, List<int>> headerByteCache = new Dictionary<decimal, List<int>>();
+        private static readonly Dictionary<decimal, List<int>> headerByteCache = new Dictionary<decimal, List<int>>();
 
         public static void CreateNewMessage(EASMessage message, bool ebsTone = true, bool nwsTone = false,
             string announcement = "")
