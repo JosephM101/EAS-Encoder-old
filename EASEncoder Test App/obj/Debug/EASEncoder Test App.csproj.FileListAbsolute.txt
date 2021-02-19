@@ -1,0 +1,50 @@
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\libmp3lame.32.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\libmp3lame.64.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\EASEncoder.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\NAudio.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\NAudio.Lame.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\EASEncoder.pdb
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\NAudio.xml
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EASEncoder Test App.csprojAssemblyReference.cache
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.Form1.resources
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.Properties.Resources.resources
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EASEncoder Test App.csproj.GenerateResource.cache
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EASEncoder Test App.csproj.CopyComplete
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\EAS Encoder.exe.config
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\EAS Encoder.exe
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\bin\Debug\EAS Encoder.pdb
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EAS Encoder.exe
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EAS Encoder.pdb
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.About.resources
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\libmp3lame.32.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\libmp3lame.64.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\EAS Encoder.exe.config
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\EAS Encoder.exe
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\EAS Encoder.pdb
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\EASEncoder.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.Lame.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\EASEncoder.pdb
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.xml
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder Test App.csprojAssemblyReference.cache
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.About.resources
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.Form1.resources
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.Properties.Resources.resources
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder Test App.csproj.GenerateResource.cache
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder Test App.csproj.CoreCompileInputs.cache
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder Test App.csproj.CopyComplete
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EAS Encoder.exe
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\obj\Debug\EAS Encoder.pdb
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\Microsoft.Win32.Registry.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.Asio.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.Core.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.Midi.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.Wasapi.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.WinForms.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.WinMM.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Security.AccessControl.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.Lame.pdb
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Security.AccessControl.xml
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Security.Principal.Windows.xml

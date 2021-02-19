@@ -1,0 +1,23 @@
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\bin\Debug\libmp3lame.32.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\bin\Debug\libmp3lame.64.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\bin\Debug\EASEncoder.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\bin\Debug\EASEncoder.pdb
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\bin\Debug\NAudio.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\bin\Debug\NAudio.Lame.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\bin\Debug\NAudio.xml
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\obj\Debug\EASEncoder.csprojAssemblyReference.cache
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\obj\Debug\EASEncoder.csproj.CopyComplete
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\obj\Debug\EASEncoder.dll
+C:\Users\jmig2\Downloads\EAS-Encoder-master\EASEncoder\obj\Debug\EASEncoder.pdb
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\bin\Debug\libmp3lame.32.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\bin\Debug\libmp3lame.64.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\bin\Debug\EASEncoder.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\bin\Debug\EASEncoder.pdb
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\bin\Debug\NAudio.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\bin\Debug\NAudio.Lame.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\bin\Debug\NAudio.xml
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csprojAssemblyReference.cache
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.CoreCompileInputs.cache
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.CopyComplete
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.dll
+C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.pdb
