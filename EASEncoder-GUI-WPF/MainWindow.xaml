@@ -6,5 +6,35 @@
         xmlns:local="clr-namespace:EASEncoder_GUI_WPF"
         mc:Ignorable="d"
         Title="EAS Encoder" Height="450" Width="800">
-    <Grid/>
+    <Grid>
+        <Menu DockPanel.Dock="Top" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Load alert file" />
+                <MenuItem Header="_Load Announcement From Text" />
+                <MenuItem Header="_Save alert file" />
+                <MenuItem Header="_Export to .WAV file" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About" />
+            </MenuItem>
+        </Menu>
+        <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Left" Height="auto" Margin="10,27,0,0" VerticalAlignment="Top" Width="auto">
+            <Grid Margin="0" Height="auto" Width="auto">
+                <Label x:Name="label" Content="Originator" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,5,0,0"/>
+                <ComboBox x:Name="alertOriginator_comboBox" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="263"/>
+                <Label x:Name="label_alert" Content="Alert Code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,60,0,0"/>
+                <ComboBox x:Name="alertCode_comboBox" HorizontalAlignment="Left" Margin="10,86,0,8" VerticalAlignment="Top" Width="263"/>
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="285,30,8,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name="label_Copy1" Content="Sender ID (8 chars)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,5,0,0"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location &amp; Time" HorizontalAlignment="Left" Height="239" Margin="10,171,0,0" VerticalAlignment="Top" Width="425">
+            <Grid Margin="0" Height="auto" Width="auto">
+                
+            </Grid>
+        </GroupBox>
+    </Grid>
 </Window>
