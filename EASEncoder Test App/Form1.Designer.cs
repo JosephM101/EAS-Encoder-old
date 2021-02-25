@@ -223,7 +223,7 @@
             // 
             this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGenerate.BackColor = System.Drawing.Color.Pink;
-            this.btnGenerate.Location = new System.Drawing.Point(249, 69);
+            this.btnGenerate.Location = new System.Drawing.Point(186, 65);
             this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(231, 46);
@@ -234,32 +234,30 @@
             // 
             // chkEbsTones
             // 
-            this.chkEbsTones.AutoSize = true;
+            this.chkEbsTones.BackColor = System.Drawing.Color.Transparent;
             this.chkEbsTones.Checked = true;
             this.chkEbsTones.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEbsTones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEbsTones.Location = new System.Drawing.Point(207, 20);
+            this.chkEbsTones.Location = new System.Drawing.Point(9, 20);
             this.chkEbsTones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkEbsTones.Name = "chkEbsTones";
-            this.chkEbsTones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.chkEbsTones.Size = new System.Drawing.Size(257, 29);
+            this.chkEbsTones.Size = new System.Drawing.Size(311, 29);
             this.chkEbsTones.TabIndex = 15;
             this.chkEbsTones.Text = "Use EBS Attention Tones";
-            this.chkEbsTones.UseVisualStyleBackColor = true;
+            this.chkEbsTones.UseVisualStyleBackColor = false;
             this.chkEbsTones.CheckedChanged += new System.EventHandler(this.chkEbsTones_CheckedChanged);
             // 
             // chkNwsTone
             // 
-            this.chkNwsTone.AutoSize = true;
+            this.chkNwsTone.BackColor = System.Drawing.Color.Transparent;
             this.chkNwsTone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkNwsTone.Location = new System.Drawing.Point(208, 55);
+            this.chkNwsTone.Location = new System.Drawing.Point(9, 53);
             this.chkNwsTone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkNwsTone.Name = "chkNwsTone";
-            this.chkNwsTone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.chkNwsTone.Size = new System.Drawing.Size(255, 29);
+            this.chkNwsTone.Size = new System.Drawing.Size(311, 29);
             this.chkNwsTone.TabIndex = 16;
             this.chkNwsTone.Text = "Use NWS Attention Tone";
-            this.chkNwsTone.UseVisualStyleBackColor = true;
+            this.chkNwsTone.UseVisualStyleBackColor = false;
             // 
             // txtAnnouncement
             // 
@@ -271,7 +269,7 @@
             this.txtAnnouncement.Multiline = true;
             this.txtAnnouncement.Name = "txtAnnouncement";
             this.txtAnnouncement.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtAnnouncement.Size = new System.Drawing.Size(487, 422);
+            this.txtAnnouncement.Size = new System.Drawing.Size(425, 328);
             this.txtAnnouncement.TabIndex = 17;
             this.txtAnnouncement.TextChanged += new System.EventHandler(this.txtAnnouncement_TextChanged);
             // 
@@ -279,7 +277,7 @@
             // 
             this.btnGeneratePlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGeneratePlay.BackColor = System.Drawing.Color.LightPink;
-            this.btnGeneratePlay.Location = new System.Drawing.Point(312, 18);
+            this.btnGeneratePlay.Location = new System.Drawing.Point(249, 14);
             this.btnGeneratePlay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGeneratePlay.Name = "btnGeneratePlay";
             this.btnGeneratePlay.Size = new System.Drawing.Size(168, 46);
@@ -295,12 +293,12 @@
             this.datagridRegions.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.datagridRegions.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.datagridRegions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagridRegions.Location = new System.Drawing.Point(11, 220);
+            this.datagridRegions.Location = new System.Drawing.Point(6, 220);
             this.datagridRegions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.datagridRegions.Name = "datagridRegions";
             this.datagridRegions.RowHeadersWidth = 50;
             this.datagridRegions.RowTemplate.Height = 24;
-            this.datagridRegions.Size = new System.Drawing.Size(639, 278);
+            this.datagridRegions.Size = new System.Drawing.Size(644, 181);
             this.datagridRegions.TabIndex = 19;
             // 
             // btnAddRegion
@@ -320,7 +318,7 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 199);
+            this.label8.Location = new System.Drawing.Point(3, 201);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(119, 17);
             this.label8.TabIndex = 21;
@@ -377,7 +375,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1122, 28);
             this.menuStrip1.TabIndex = 30;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -476,7 +474,7 @@
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.customizeToolStripMenuItem.Text = "&Customize";
             // 
             // helpToolStripMenuItem
@@ -490,7 +488,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -522,7 +520,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(659, 506);
+            this.groupBox1.Size = new System.Drawing.Size(659, 409);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Event Location(s)";
@@ -572,13 +570,14 @@
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
             this.groupBox4.Controls.Add(this.btnGenerate);
             this.groupBox4.Controls.Add(this.btnGeneratePlay);
-            this.groupBox4.Location = new System.Drawing.Point(685, 590);
+            this.groupBox4.Location = new System.Drawing.Point(685, 493);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox4.Size = new System.Drawing.Size(485, 121);
+            this.groupBox4.Size = new System.Drawing.Size(423, 119);
             this.groupBox4.TabIndex = 34;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Export && Save";
@@ -588,10 +587,10 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 708);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 617);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 13, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1184, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1122, 26);
             this.statusStrip1.TabIndex = 35;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -606,7 +605,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1184, 734);
+            this.ClientSize = new System.Drawing.Size(1122, 643);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -632,7 +631,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

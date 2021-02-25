@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASEncoder Test App", "EASEncoder Test App\EASEncoder Test App.csproj", "{20918895-68F1-4DB2-BDAA-CE82E93340CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASEncoder GUI", "EASEncoder Test App\EASEncoder GUI.csproj", "{20918895-68F1-4DB2-BDAA-CE82E93340CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

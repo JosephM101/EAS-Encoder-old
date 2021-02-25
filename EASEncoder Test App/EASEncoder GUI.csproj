@@ -8,7 +8,7 @@
     <ProjectGuid>{20918895-68F1-4DB2-BDAA-CE82E93340CE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EASEncoder_Test_App</RootNamespace>
+    <RootNamespace>EASEncoder_GUI</RootNamespace>
     <AssemblyName>EAS Encoder</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

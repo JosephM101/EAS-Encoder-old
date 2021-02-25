@@ -1,0 +1,25 @@
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\libmp3lame.32.dll
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\libmp3lame.64.dll
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\EAS Encoder.exe.config
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\EAS Encoder.exe
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\EAS Encoder.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\EASEncoder.dll.config
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\Microsoft.Win32.Registry.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\NAudio.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Buffers.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Memory.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Security.AccessControl.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder GUI.csprojAssemblyReference.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.About.resources
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder_Test_App.Form1.resources
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder_GUI.Properties.Resources.resources
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder GUI.csproj.GenerateResource.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder GUI.csproj.CoreCompileInputs.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder GUI.csproj.Fody.CopyLocal.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder GUI.csproj.CopyComplete
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EAS Encoder.exe
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EAS Encoder.pdb
