@@ -1,0 +1,15 @@
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Release\EASEncoder-GUI-WPF.exe.config
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Release\EASEncoder-GUI-WPF.exe
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Release\EASEncoder-GUI-WPF.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF.csprojAssemblyReference.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\MainWindow.g.cs
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\App.g.cs
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF_MarkupCompile.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF_MarkupCompile.lref
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\MainWindow.baml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF.g.resources
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder_GUI_WPF.Properties.Resources.resources
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF.csproj.GenerateResource.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF.csproj.CoreCompileInputs.cache
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF.exe
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Release\EASEncoder-GUI-WPF.pdb
