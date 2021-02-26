@@ -14,8 +14,12 @@
         Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="EAS Encoder" Height="660" Width="920" MinWidth="920" MinHeight="660">
+        Title="EAS Encoder" Height="680" Width="920" MinWidth="920" MinHeight="680">
     <Grid>
+        <!--Dialog initializers-->
+
+        <!--End Dialog initializers-->
+
         <DockPanel VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,16,8" Visibility="Collapsed">
@@ -46,14 +50,14 @@
             </Menu>
             <StackPanel Orientation="Horizontal" Width="auto">
                 <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0">
-                    <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Left" Height="162" Margin="0" VerticalAlignment="Top" Width="473" Style="{DynamicResource MaterialDesignCardGroupBox}">
+                    <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Left" Height="162" Margin="0" VerticalAlignment="Top" Width="475" Style="{DynamicResource MaterialDesignCardGroupBox}">
                         <Grid Margin="0" Height="auto" Width="auto">
-                            <ComboBox x:Name="comboOriginator" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Originator" SelectionChanged="comboOriginator_SelectionChanged" />
+                            <ComboBox x:Name="comboOriginator" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Originator" />
                             <ComboBox x:Name="comboCode" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Alert Code" RenderTransformOrigin="0.508,0.436" />
                             <TextBox x:Name="textBox" Style="{StaticResource MaterialDesignFilledTextBox}" HorizontalAlignment="Left" Height="auto" Margin="295,10,0,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Sender ID (8 chars)"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" HorizontalAlignment="Left" Margin="0,8,0,0" Width="473" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="340">
+                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" HorizontalAlignment="Left" Margin="0,8,0,0" Width="475" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="381">
                         <StackPanel Orientation="Vertical" CanVerticallyScroll="True">
                             <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
                                 <Label Content="Alert starts:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
@@ -66,30 +70,46 @@
                                 <DatePicker x:Name="alertEnd_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
                             </StackPanel>
                             <Label Margin="8,16,0,0" >Event Locations</Label>
-                            <DataGrid x:Name="datagridRegions" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" Margin="8,0" Height="155" Background="#FF373737">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,8">
+                                <StackPanel Orientation="Vertical">
+                                    <ComboBox Name="state_SelectionComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="State" Width="100" Margin="8,0" SelectionChanged="state_SelectionComboBox_SelectionChanged"/>
+                                    <TextBlock x:Name="label_stateNotSelectedError" Text="Please select state." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" />
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical">
+                                    <ComboBox Name="county_SelectionComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="County" Width="100" Margin="8,0" SelectionChanged="county_SelectionComboBox_SelectionChanged" DataContextChanged="county_SelectionComboBox_DataContextChanged"/>
+                                    <TextBlock x:Name="label_countyNotSelectedError" Text="Please select county." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" />
+                                </StackPanel>
+                            </StackPanel>
+                            <DataGrid x:Name="datagridRegions" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" Margin="8,0" Height="155" Background="#FF373737" >
+                                <!--
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource MaterialDesignDataGridRow}">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    </Style>
+                                </DataGrid.RowStyle>
+                                <DataGrid.RowHeaderStyle>
+                                    <Style TargetType="{x:Type DataGridRowHeader}" BasedOn="{StaticResource MaterialDesignDataGridRowHeader}">
+                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    </Style>
+                                </DataGrid.RowHeaderStyle>
+                                !-->
                                 <DataGrid.Effect>
                                     <DropShadowEffect Direction="270" Opacity="0.3" ShadowDepth="3"/>
                                 </DataGrid.Effect>
                             </DataGrid>
-                            <materialDesign:Card HorizontalAlignment="Right" Margin="0,-16,0,0">
+                            <materialDesign:Snackbar x:Name="ItemsDeleted_SnackBar"  >
+
+                            </materialDesign:Snackbar>
+                            <materialDesign:Card HorizontalAlignment="Right" Margin="0,-16,4,0">
                                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <materialDesign:DialogHost x:Name="AddNewLocationDialog" CloseOnClickAway="True">
-                                        <materialDesign:DialogHost.DialogContent>
-                                            <StackPanel Margin="16">
-                                                <ComboBox Name="state_SelectionComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="State" Width="150" Margin="0,0,0,8" SelectionChanged="state_SelectionComboBox_SelectionChanged"/>
-                                                <ComboBox Name="county_SelectionComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="County" Width="150"/>
-                                                <Button Content="Add" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-                                            </StackPanel>
-                                        </materialDesign:DialogHost.DialogContent>
-                                    </materialDesign:DialogHost>
-                                    <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     <!-- 
                                     <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
                                     -->
-                                    <Button x:Name="deleteLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Minus, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="addLocationButton_Click"/>
+                                    <Button x:Name="deleteLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Minus, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="deleteLocationButton_Click"/>
                                 </StackPanel>
                             </materialDesign:Card>
-
+                            <materialDesign:Snackbar HorizontalAlignment="Stretch" Height="100" VerticalAlignment="Stretch"/>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>

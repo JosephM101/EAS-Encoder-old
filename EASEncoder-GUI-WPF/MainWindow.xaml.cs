@@ -19,6 +19,8 @@ using System.Reflection;
 using EASEncoder.Models;
 using NAudio.Wave;
 using MaterialDesignThemes.Wpf;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace EASEncoder_GUI_WPF
 {
@@ -73,18 +75,112 @@ namespace EASEncoder_GUI_WPF
 
         private void state_SelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _selectedState = MessageRegions.States.FirstOrDefault(x => x.Name == state_SelectionComboBox.Text);
+            _selectedState = MessageRegions.States.FirstOrDefault(x => x.Name == e.AddedItems[0].ToString());
             if (_selectedState != null)
             {
                 county_SelectionComboBox.Items.Clear();
-                county_SelectionComboBox.Text = "";
                 _selectedCounty = null;
-                foreach (
-                    var thisCounty in
-                        MessageRegions.Counties.Where(x => x.State.Id == _selectedState.Id).OrderBy(x => x.Name))
+                MessageRegions.Counties.Where(x => x.State.Id == _selectedState.Id).OrderBy(x => x.Name).ToArray().ToList().ForEach(item => county_SelectionComboBox.Items.Add(item.Name));
+            }
+            CheckIfAllLocationCombosArePopulated();
+        }
+
+        private void addLocationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (AreAllLocationCombosPopulated())
+            {
+                try
                 {
-                    county_SelectionComboBox.Items.Add(thisCounty.Name);
+                    _selectedCounty = MessageRegions.Counties.FirstOrDefault(x => x.State.Id == _selectedState.Id && x.Name == county_SelectionComboBox.Text);
+                    if (state_SelectionComboBox.SelectedIndex >= 0 && county_SelectionComboBox.SelectedIndex >= 0 && !Regions.Exists(x => x.County.Id == _selectedCounty.Id && x.State.Id == _selectedState.Id))
+                    //if (state_SelectionComboBox.SelectedIndex >= 0 && county_SelectionComboBox.SelectedIndex >= 0 && !Regions.Exists(x => x.County.Id == _selectedCounty.Id && x.State.Id == _selectedState.Id))
+                    {
+                        label_stateNotSelectedError.Visibility = Visibility.Hidden;
+                        label_countyNotSelectedError.Visibility = Visibility.Hidden;
+                        Regions.Add(new SAMERegion(_selectedState, _selectedCounty));
+                        var bindingList = new BindingList<SAMERegion>(Regions);
+                        var source = new BindingSource(bindingList, null);
+                        datagridRegions.ItemsSource = source;
+
+                        county_SelectionComboBox.SelectedIndex = -1;
+                        _selectedCounty = null;
+                    }
                 }
+                catch (Exception ex)
+                {
+                    CheckIfAllLocationCombosArePopulated();
+                }
+            }
+            else
+            {
+                CheckIfAllLocationCombosArePopulated();
+            }
+        }
+
+        void CheckIfAllLocationCombosArePopulated()
+        {
+            if (state_SelectionComboBox.SelectedIndex <= 0)
+            {
+                label_stateNotSelectedError.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                label_stateNotSelectedError.Visibility = Visibility.Hidden;
+            }
+            if (county_SelectionComboBox.SelectedIndex <= 0)
+            {
+                label_countyNotSelectedError.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                label_countyNotSelectedError.Visibility = Visibility.Hidden;
+            }
+        }
+
+        bool AreAllLocationCombosPopulated()
+        {
+            if ((state_SelectionComboBox.SelectedIndex >= 0) && (county_SelectionComboBox.SelectedIndex >= 0))
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private void county_SelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //_selectedCounty = MessageRegions.Counties.FirstOrDefault(x => x.State.Id == _selectedState.Id && x.Name == county_SelectionComboBox.Text);
+            //try
+            //{
+            //    string[] strings = new string[e.AddedItems.Count];
+            //    e.AddedItems.CopyTo(strings, e.AddedItems.Count);
+            //
+            //    _selectedCounty = MessageRegions.Counties.FirstOrDefault(x => x.State.Id == _selectedState.Id && x.Name == strings[0]);
+            //}
+            //catch
+            //{
+            //
+            //}
+        }
+
+        private void county_SelectionComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        private void deleteLocationButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(datagridRegions.SelectedItems.Count > 0)
+            {
+                foreach(SAMERegion item in datagridRegions.SelectedItems)
+                {
+                    //DataGridCellInfo cellToRemove = cell;
+                    //datagridRegions.Items.Remove(cellToRemove);
+                    Regions.Remove(item);
+                }
+                //datagridRegions.Items.Remove(datagridRegions.SelectedItem);
+                var bindingList = new BindingList<SAMERegion>(Regions);
+                var source = new BindingSource(bindingList, null);
+                datagridRegions.ItemsSource = source;
             }
         }
     }
