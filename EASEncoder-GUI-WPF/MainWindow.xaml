@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="EAS Encoder" Height="615.2" Width="920" MinWidth="920" MinHeight="540">
+        Title="EAS Encoder" Height="660" Width="920" MinWidth="920" MinHeight="660">
     <Grid>
         <DockPanel VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
@@ -25,8 +25,8 @@
                 <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Width="auto" Margin="0,0,8,8">
                     <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0"/>
                     <Button x:Name="button_saveAlertToWaveFile" Content="Generate and Save .WAV" Width="auto" Margin="4,0,0,0"/>
-                 </StackPanel>
-                
+                </StackPanel>
+
             </StackPanel>
         </DockPanel>
         <Grid Margin="4,80,-1.4,0" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
@@ -53,18 +53,30 @@
                             <TextBox x:Name="textBox" Style="{StaticResource MaterialDesignFilledTextBox}" HorizontalAlignment="Left" Height="auto" Margin="295,10,0,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Sender ID (8 chars)"/>
                         </Grid>
                     </GroupBox>
-                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" HorizontalAlignment="Left" Margin="0,8,0,0" Width="473" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="300">
+                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" HorizontalAlignment="Left" Margin="0,8,0,0" Width="473" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="340">
                         <StackPanel Orientation="Vertical" CanVerticallyScroll="True">
                             <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
-                                <Label Content="Alert starts:" Margin="0,0,8,0" />
+                                <Label Content="Alert starts:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
                                 <materialDesign:TimePicker x:Name="alertStart_TimePicker" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose time"/>
                                 <DatePicker x:Name="alertStart_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
                             </StackPanel>
                             <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
-                                <Label Content="Alert expires:" Margin="0,0,8,0" />
+                                <Label Content="Alert expires:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
                                 <materialDesign:TimePicker x:Name="alertEnd_TimePicker" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose time"/>
                                 <DatePicker x:Name="alertEnd_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
                             </StackPanel>
+                            <Label Margin="8,16,0,0" >Event Locations</Label>
+                            <DataGrid x:Name="dataGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" Margin="8,0" Height="155" Background="#FF373737">
+                                <DataGrid.Effect>
+                                    <DropShadowEffect Direction="270" Opacity="0.3" ShadowDepth="3"/>
+                                </DataGrid.Effect>
+                            </DataGrid>
+                            <materialDesign:Card HorizontalAlignment="Right" Margin="0,-16,0,0">
+                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <Button x:Name="deleteLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Minus, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </materialDesign:Card>
 
                         </StackPanel>
                     </GroupBox>
@@ -76,10 +88,10 @@
                         </Grid>
                     </GroupBox>
                 </StackPanel>
-                
+
             </StackPanel>
         </Grid>
-        <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="2" materialDesign:ShadowAssist.ShadowDepth="Depth4" ClipToBounds="False" Margin="2 2 2 2">
+        <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="2" materialDesign:ShadowAssist.ShadowDepth="Depth5" ClipToBounds="False" Margin="2 2 2 2">
             <StackPanel Orientation="Horizontal">
                 <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
                 <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="18" HorizontalAlignment="Center" Padding="0,2,0,0"><Run Text="EAS Encoder"/></TextBlock>
