@@ -33,3 +33,9 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\NAudio.
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\System.Security.AccessControl.xml
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\System.Security.Principal.Windows.xml
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEncoder-GUI-WPF.csproj.CopyComplete
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\MaterialDesignColors.dll
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\MaterialDesignColors.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\App.baml

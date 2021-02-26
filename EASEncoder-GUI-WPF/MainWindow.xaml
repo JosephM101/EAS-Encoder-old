@@ -1,40 +1,89 @@
 ﻿<Window x:Class="EASEncoder_GUI_WPF.MainWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EASEncoder_GUI_WPF"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="EAS Encoder" Height="450" Width="800">
+        Title="EAS Encoder" Height="615.2" Width="920" MinWidth="920" MinHeight="540">
     <Grid>
-        <Menu DockPanel.Dock="Top" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left" >
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Load alert file" />
-                <MenuItem Header="_Load Announcement From Text" />
-                <MenuItem Header="_Save alert file" />
-                <MenuItem Header="_Export to .WAV file" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="Help">
-                <MenuItem Header="About" />
-            </MenuItem>
-        </Menu>
-        <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Left" Height="auto" Margin="10,27,0,0" VerticalAlignment="Top" Width="auto">
-            <Grid Margin="0" Height="auto" Width="auto">
-                <Label x:Name="label" Content="Originator" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,5,0,0"/>
-                <ComboBox x:Name="alertOriginator_comboBox" HorizontalAlignment="Left" Margin="10,31,0,0" VerticalAlignment="Top" Width="263"/>
-                <Label x:Name="label_alert" Content="Alert Code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,60,0,0"/>
-                <ComboBox x:Name="alertCode_comboBox" HorizontalAlignment="Left" Margin="10,86,0,8" VerticalAlignment="Top" Width="263"/>
-                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="285,30,8,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="120"/>
-                <Label x:Name="label_Copy1" Content="Sender ID (8 chars)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="278,5,0,0"/>
-            </Grid>
-        </GroupBox>
-        <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location &amp; Time" HorizontalAlignment="Left" Height="239" Margin="10,171,0,0" VerticalAlignment="Top" Width="425">
-            <Grid Margin="0" Height="auto" Width="auto">
+        <DockPanel VerticalAlignment="Bottom">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,16,8" Visibility="Collapsed">
+                    <Label x:Name="label" Content="Dark mode" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0,1,8,0"/>
+                    <ToggleButton x:Name="switch_DarkModeToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" IsChecked="False" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Checked="switch_DarkModeToggle_Checked" />
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Width="auto" Margin="0,0,8,8">
+                    <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0"/>
+                    <Button x:Name="button_saveAlertToWaveFile" Content="Generate and Save .WAV" Width="auto" Margin="4,0,0,0"/>
+                 </StackPanel>
                 
-            </Grid>
-        </GroupBox>
+            </StackPanel>
+        </DockPanel>
+        <Grid Margin="4,80,-1.4,0" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <Menu DockPanel.Dock="Top" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" />
+                    <MenuItem Header="_Load alert file" />
+                    <MenuItem Header="_Load Announcement From Text" />
+                    <MenuItem Header="_Save alert file" />
+                    <MenuItem Header="_Export to .WAV file" />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About" />
+                </MenuItem>
+            </Menu>
+            <StackPanel Orientation="Horizontal" Width="auto">
+                <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0">
+                    <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Left" Height="162" Margin="0" VerticalAlignment="Top" Width="473" Style="{DynamicResource MaterialDesignCardGroupBox}">
+                        <Grid Margin="0" Height="auto" Width="auto">
+                            <ComboBox x:Name="comboOriginator" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Originator" />
+                            <ComboBox x:Name="comboCode" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Alert Code" RenderTransformOrigin="0.508,0.436" />
+                            <TextBox x:Name="textBox" Style="{StaticResource MaterialDesignFilledTextBox}" HorizontalAlignment="Left" Height="auto" Margin="295,10,0,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Sender ID (8 chars)"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" HorizontalAlignment="Left" Margin="0,8,0,0" Width="473" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="300">
+                        <StackPanel Orientation="Vertical" CanVerticallyScroll="True">
+                            <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
+                                <Label Content="Alert starts:" Margin="0,0,8,0" />
+                                <materialDesign:TimePicker x:Name="alertStart_TimePicker" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose time"/>
+                                <DatePicker x:Name="alertStart_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
+                            </StackPanel>
+                            <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
+                                <Label Content="Alert expires:" Margin="0,0,8,0" />
+                                <materialDesign:TimePicker x:Name="alertEnd_TimePicker" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose time"/>
+                                <DatePicker x:Name="alertEnd_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0">
+                    <GroupBox x:Name="groupBox_message" Header="Message" HorizontalAlignment="Left" Margin="0" Width="400" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="447">
+                        <Grid Height="auto" VerticalAlignment="Top" Width="auto">
+                            <TextBox x:Name="textBox1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" TextWrapping="Wrap" Width="auto" TextChanged="textBox1_TextChanged" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Message" AcceptsReturn="True"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+                
+            </StackPanel>
+        </Grid>
+        <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="2" materialDesign:ShadowAssist.ShadowDepth="Depth4" ClipToBounds="False" Margin="2 2 2 2">
+            <StackPanel Orientation="Horizontal">
+                <ToggleButton Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="18" HorizontalAlignment="Center" Padding="0,2,0,0"><Run Text="EAS Encoder"/></TextBlock>
+            </StackPanel>
+        </materialDesign:ColorZone>
     </Grid>
 </Window>

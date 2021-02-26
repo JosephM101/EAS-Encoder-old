@@ -305,7 +305,7 @@ namespace EASEncoder_Test_App
             }
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                _start = dateStart.Value.ToUniversalTime();
+                _start = dateStart.Value.ToUniversalTime(); 
                 _senderId = txtSender.Text;
                 _length = ZeroPad(comboLengthHour.Text, 2) + ZeroPad(comboLengthMinutes.Text, 2);
 

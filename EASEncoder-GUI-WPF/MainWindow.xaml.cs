@@ -18,6 +18,7 @@ using System.IO;
 using System.Reflection;
 using EASEncoder.Models;
 using NAudio.Wave;
+using MaterialDesignThemes.Wpf;
 
 namespace EASEncoder_GUI_WPF
 {
@@ -40,6 +41,33 @@ namespace EASEncoder_GUI_WPF
         public MainWindow()
         {
             InitializeComponent();
+            //string[] alertCodes = MessageTypes.AlertCodes.OrderBy(x => x.Name).Select(x => x.Name).ToArray();
+            //string[] originators = MessageTypes.Originators.OrderBy(x => x.Name).Select(x => x.Name).ToArray();
+
+            MessageTypes.AlertCodes.OrderBy(x => x.Name).Select(x => x.Name).ToArray().ToList().ForEach(item => comboCode.Items.Add(item));
+            MessageTypes.Originators.OrderBy(x => x.Name).Select(x => x.Name).ToArray().ToList().ForEach(item => comboOriginator.Items.Add(item));
+        }
+
+        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void switch_DarkModeToggle_Checked(object sender, RoutedEventArgs e)
+        {
+            //PaletteHelper _paletteHelper = new PaletteHelper();
+            //ITheme theme = _paletteHelper.GetTheme();
+            //IBaseTheme baseTheme;
+            //if ((bool)switch_DarkModeToggle.IsChecked)
+            //{
+            //    baseTheme = new MaterialDesignDarkTheme();
+            //}
+            //else
+            //{
+            //    baseTheme = new MaterialDesignLightTheme();
+            //}
+            //theme.SetBaseTheme(baseTheme);
+            //_paletteHelper.SetTheme(theme);
         }
     }
 }
