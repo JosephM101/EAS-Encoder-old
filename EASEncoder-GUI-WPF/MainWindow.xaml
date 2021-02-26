@@ -48,7 +48,7 @@
                 <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0">
                     <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Left" Height="162" Margin="0" VerticalAlignment="Top" Width="473" Style="{DynamicResource MaterialDesignCardGroupBox}">
                         <Grid Margin="0" Height="auto" Width="auto">
-                            <ComboBox x:Name="comboOriginator" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Originator" />
+                            <ComboBox x:Name="comboOriginator" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Originator" SelectionChanged="comboOriginator_SelectionChanged" />
                             <ComboBox x:Name="comboCode" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Alert Code" RenderTransformOrigin="0.508,0.436" />
                             <TextBox x:Name="textBox" Style="{StaticResource MaterialDesignFilledTextBox}" HorizontalAlignment="Left" Height="auto" Margin="295,10,0,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Sender ID (8 chars)"/>
                         </Grid>
@@ -66,14 +66,26 @@
                                 <DatePicker x:Name="alertEnd_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
                             </StackPanel>
                             <Label Margin="8,16,0,0" >Event Locations</Label>
-                            <DataGrid x:Name="dataGrid" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" Margin="8,0" Height="155" Background="#FF373737">
+                            <DataGrid x:Name="datagridRegions" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" Margin="8,0" Height="155" Background="#FF373737">
                                 <DataGrid.Effect>
                                     <DropShadowEffect Direction="270" Opacity="0.3" ShadowDepth="3"/>
                                 </DataGrid.Effect>
                             </DataGrid>
                             <materialDesign:Card HorizontalAlignment="Right" Margin="0,-16,0,0">
                                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                    <materialDesign:DialogHost x:Name="AddNewLocationDialog" CloseOnClickAway="True">
+                                        <materialDesign:DialogHost.DialogContent>
+                                            <StackPanel Margin="16">
+                                                <ComboBox Name="state_SelectionComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="State" Width="150" Margin="0,0,0,8" SelectionChanged="state_SelectionComboBox_SelectionChanged"/>
+                                                <ComboBox Name="county_SelectionComboBox" Style="{StaticResource MaterialDesignFilledComboBox}" materialDesign:HintAssist.Hint="County" Width="150"/>
+                                                <Button Content="Add" Style="{StaticResource MaterialDesignFlatButton}" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+                                            </StackPanel>
+                                        </materialDesign:DialogHost.DialogContent>
+                                    </materialDesign:DialogHost>
                                     <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    <!-- 
+                                    <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
+                                    -->
                                     <Button x:Name="deleteLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Minus, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </StackPanel>
                             </materialDesign:Card>

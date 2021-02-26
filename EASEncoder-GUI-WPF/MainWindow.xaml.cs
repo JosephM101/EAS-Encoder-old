@@ -46,6 +46,7 @@ namespace EASEncoder_GUI_WPF
 
             MessageTypes.AlertCodes.OrderBy(x => x.Name).Select(x => x.Name).ToArray().ToList().ForEach(item => comboCode.Items.Add(item));
             MessageTypes.Originators.OrderBy(x => x.Name).Select(x => x.Name).ToArray().ToList().ForEach(item => comboOriginator.Items.Add(item));
+            MessageRegions.States.OrderBy(x => x.Name).Select(x => x.Name).ToArray().ToList().ForEach(item => state_SelectionComboBox.Items.Add(item));
         }
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
@@ -68,6 +69,23 @@ namespace EASEncoder_GUI_WPF
             //}
             //theme.SetBaseTheme(baseTheme);
             //_paletteHelper.SetTheme(theme);
+        }
+
+        private void state_SelectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _selectedState = MessageRegions.States.FirstOrDefault(x => x.Name == state_SelectionComboBox.Text);
+            if (_selectedState != null)
+            {
+                county_SelectionComboBox.Items.Clear();
+                county_SelectionComboBox.Text = "";
+                _selectedCounty = null;
+                foreach (
+                    var thisCounty in
+                        MessageRegions.Counties.Where(x => x.State.Id == _selectedState.Id).OrderBy(x => x.Name))
+                {
+                    county_SelectionComboBox.Items.Add(thisCounty.Name);
+                }
+            }
         }
     }
 }
