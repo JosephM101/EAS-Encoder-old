@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="EAS Encoder" Height="680" Width="920" MinWidth="920" MinHeight="680">
+        Title="EAS Encoder" Height="720" Width="920" MinWidth="920" MinHeight="720">
     <Grid>
         <!--Dialog initializers-->
 
@@ -27,100 +27,108 @@
                     <ToggleButton x:Name="switch_DarkModeToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" IsChecked="False" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Checked="switch_DarkModeToggle_Checked" />
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Width="auto" Margin="0,0,8,8">
-                    <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0"/>
+                    <materialDesign:DialogHost CloseOnClickAway="True">
+                        <materialDesign:DialogHost.DialogContent>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,8,8,8">
+                                <MediaElement x:Name="preview_MediaElement" />
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="4,0,4,0">
+                                        <TextBlock x:Name="TextBlock_ElapsedTime" Text="0:00" VerticalAlignment="Center" />
+                                        <Slider x:Name="preview_PositionScrollBar" Width='300' Minimum="0" Maximum="100" Margin="8,8,8,8" ValueChanged="preview_PositionScrollBar_ValueChanged" />
+                                        <TextBlock x:Name="TextBlock_TotalTime" Text="0:00" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </StackPanel>
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                        <materialDesign:PackIcon Kind="VolumeLow" Margin="0,5" />
+                                        <Slider x:Name="preview_VolumeScrollBar" Width='100' Minimum="0" Maximum="100" TickFrequency="10" TickPlacement="BottomRight" Value="50" Margin="4" ValueChanged="preview_VolumeScrollBar_ValueChanged" />
+                                        <materialDesign:PackIcon Kind="VolumeHigh" Margin="0,5" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                        <Button x:Name="button_dismissPreview" Content="Dismiss" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="0,4,0,0" Style="{StaticResource MaterialDesignFlatButton}" />
+                                    </StackPanel>
+                                </Grid>
+                            </StackPanel>
+                        </materialDesign:DialogHost.DialogContent>
+                        <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Click="button_previewAlertAudio_Click" />
+                    </materialDesign:DialogHost>
                     <Button x:Name="button_saveAlertToWaveFile" Content="Generate and Save .WAV" Width="auto" Margin="4,0,0,0"/>
                 </StackPanel>
-
             </StackPanel>
+            <materialDesign:Snackbar x:Name="main_snackbar" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch"/>
         </DockPanel>
         <Grid Margin="4,80,-1.4,0" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
-            <Menu DockPanel.Dock="Top" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_New" />
-                    <MenuItem Header="_Load alert file" />
-                    <MenuItem Header="_Load Announcement From Text" />
-                    <MenuItem Header="_Save alert file" />
-                    <MenuItem Header="_Export to .WAV file" />
-                    <Separator />
-                    <MenuItem Header="_Exit" />
-                </MenuItem>
-                <MenuItem Header="Help">
-                    <MenuItem Header="About" />
-                </MenuItem>
-            </Menu>
             <StackPanel Orientation="Horizontal" Width="auto">
-                <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0">
-                    <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Left" Height="162" Margin="0" VerticalAlignment="Top" Width="475" Style="{DynamicResource MaterialDesignCardGroupBox}">
-                        <Grid Margin="0" Height="auto" Width="auto">
-                            <ComboBox x:Name="comboOriginator" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Originator" />
-                            <ComboBox x:Name="comboCode" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,59,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Alert Code" RenderTransformOrigin="0.508,0.436" />
-                            <TextBox x:Name="textBox" Style="{StaticResource MaterialDesignFilledTextBox}" HorizontalAlignment="Left" Height="auto" Margin="295,10,0,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Sender ID (8 chars)"/>
-                        </Grid>
+                <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0" VerticalAlignment="Stretch" >
+                    <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Stretch" Height="auto" Margin="0" VerticalAlignment="Top" Width="auto" Style="{DynamicResource MaterialDesignCardGroupBox}">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <ComboBox x:Name="comboOriginator" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Originator" SelectionChanged="comboOriginator_SelectionChanged" />
+                                <TextBox x:Name="txtSender" Style="{StaticResource MaterialDesignFilledTextBox}" HorizontalAlignment="Left" Height="auto" Margin="16,0,0,0" TextWrapping="Wrap" Text="12345678" VerticalAlignment="Top" Width="150" materialDesign:HintAssist.Hint="Sender ID (8 chars)" MaxLength="8"/>
+                            </StackPanel>
+                            <ComboBox x:Name="comboCode" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Alert Code" RenderTransformOrigin="0.508,0.436" SelectionChanged="comboCode_SelectionChanged" />
+                        </StackPanel>
                     </GroupBox>
-                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" HorizontalAlignment="Left" Margin="0,8,0,0" Width="475" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="381">
-                        <StackPanel Orientation="Vertical" CanVerticallyScroll="True">
-                            <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
-                                <Label Content="Alert starts:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
+                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" Margin="0,8,0,0" Width="475" Style="{DynamicResource MaterialDesignCardGroupBox}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Height="397">
+                        <StackPanel Orientation="Vertical" CanVerticallyScroll="True" VerticalAlignment="Stretch">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563">
+                                <Label Content="Alert starts:" Margin="0,0,8,0" Width="90"  HorizontalContentAlignment="Right"/>
                                 <materialDesign:TimePicker x:Name="alertStart_TimePicker" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose time"/>
                                 <DatePicker x:Name="alertStart_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
                             </StackPanel>
                             <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
-                                <Label Content="Alert expires:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
-                                <materialDesign:TimePicker x:Name="alertEnd_TimePicker" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose time"/>
-                                <DatePicker x:Name="alertEnd_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
+                                <Label Content="Valid for:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
+                                <ComboBox x:Name="comboBox_durationInHours" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="auto" MinWidth="50" materialDesign:HintAssist.Hint="Hours"/>
+                                <ComboBox x:Name="comboBox_durationInMinutes" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="auto" MinWidth="50" materialDesign:HintAssist.Hint="Minutes"/>
                             </StackPanel>
                             <Label Margin="8,16,0,0" >Event Locations</Label>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,8">
-                                <StackPanel Orientation="Vertical">
-                                    <ComboBox Name="state_SelectionComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="State" Width="100" Margin="8,0" SelectionChanged="state_SelectionComboBox_SelectionChanged"/>
-                                    <TextBlock x:Name="label_stateNotSelectedError" Text="Please select state." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" />
-                                </StackPanel>
-                                <StackPanel Orientation="Vertical">
-                                    <ComboBox Name="county_SelectionComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="County" Width="100" Margin="8,0" SelectionChanged="county_SelectionComboBox_SelectionChanged" DataContextChanged="county_SelectionComboBox_DataContextChanged"/>
-                                    <TextBlock x:Name="label_countyNotSelectedError" Text="Please select county." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" />
-                                </StackPanel>
-                            </StackPanel>
-                            <DataGrid x:Name="datagridRegions" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="100" Margin="8,0" Height="155" Background="#FF373737" >
-                                <!--
-                                <DataGrid.RowStyle>
-                                    <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource MaterialDesignDataGridRow}">
-                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                    </Style>
-                                </DataGrid.RowStyle>
-                                <DataGrid.RowHeaderStyle>
-                                    <Style TargetType="{x:Type DataGridRowHeader}" BasedOn="{StaticResource MaterialDesignDataGridRowHeader}">
-                                        <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                    </Style>
-                                </DataGrid.RowHeaderStyle>
-                                !-->
-                                <DataGrid.Effect>
-                                    <DropShadowEffect Direction="270" Opacity="0.3" ShadowDepth="3"/>
-                                </DataGrid.Effect>
-                            </DataGrid>
-                            <materialDesign:Snackbar x:Name="ItemsDeleted_SnackBar"  >
-
-                            </materialDesign:Snackbar>
-                            <materialDesign:Card HorizontalAlignment="Right" Margin="0,-16,4,0">
-                                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" FlowDirection="RightToLeft">
-                                    <!-- 
-                                    <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
-                                    -->
-                                    <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="addLocationButton_Click"/>
-                                    <Button x:Name="deleteLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Minus, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="deleteLocationButton_Click"/>
-                                </StackPanel>
-                            </materialDesign:Card>
-                            <materialDesign:Snackbar HorizontalAlignment="Stretch" Height="100" VerticalAlignment="Stretch"/>
+                            <Grid Height="240" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Stretch" >
+                                <DataGrid x:Name="datagridRegions" Margin="8,4,8,0" Background="#FF373737" Height="auto" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" >
+                                    <DataGrid.Effect>
+                                        <DropShadowEffect Direction="270" Opacity="0.4" ShadowDepth="5" BlurRadius="8"/>
+                                    </DataGrid.Effect>
+                                </DataGrid>
+                                <materialDesign:Card HorizontalAlignment="Right" Margin="0,8,8,0" VerticalAlignment="Bottom" RenderTransformOrigin="0.507,1.138">
+                                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                                        <Button x:Name="deleteLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Minus, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="deleteLocationButton_Click"/>
+                                        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_AddNewItem">
+                                            <materialDesign:DialogHost.DialogContent>
+                                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,12,8,4">
+                                                    <StackPanel Orientation="Vertical">
+                                                        <ComboBox Name="state_SelectionComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="State" Width="auto" Margin="8,0" SelectionChanged="state_SelectionComboBox_SelectionChanged"/>
+                                                        <TextBlock x:Name="label_stateNotSelectedError" Text="Please select state." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" />
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Vertical">
+                                                        <ComboBox Name="county_SelectionComboBox" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialDesign:HintAssist.Hint="County" Width="auto" Margin="8,0" SelectionChanged="county_SelectionComboBox_SelectionChanged" DataContextChanged="county_SelectionComboBox_DataContextChanged"/>
+                                                        <TextBlock x:Name="label_countyNotSelectedError" Text="Please select county." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" />
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                                        <Button x:Name="button_dialogCancel" Content="CANCEL" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" />
+                                                        <Button x:Name="button_confirmAdd" Content="ADD" Click="addLocationButton_Click" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" />
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </materialDesign:DialogHost.DialogContent>
+                                            <Button x:Name="addLocationButton" Style="{DynamicResource MaterialDesignToolForegroundButton}" Content="{materialDesign:PackIcon Kind=Add, Size=20}" Width="30" Height="30" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"/>
+                                        </materialDesign:DialogHost>
+                                    </StackPanel>
+                                </materialDesign:Card>
+                            </Grid>
                         </StackPanel>
                     </GroupBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0">
-                    <GroupBox x:Name="groupBox_message" Header="Message" HorizontalAlignment="Left" Margin="0" Width="400" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="447">
+                    <GroupBox x:Name="groupBox_message" Header="Message" HorizontalAlignment="Left" Margin="0" Width="400" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="429">
                         <Grid Height="auto" VerticalAlignment="Top" Width="auto">
-                            <TextBox x:Name="textBox1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" TextWrapping="Wrap" Width="auto" TextChanged="textBox1_TextChanged" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Message" AcceptsReturn="True"/>
+                            <TextBox x:Name="txtAnnouncement" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="auto" TextWrapping="Wrap" Width="auto" TextChanged="textBox1_TextChanged" VerticalScrollBarVisibility="Auto" materialDesign:HintAssist.Hint="Message" AcceptsReturn="True"/>
                         </Grid>
                     </GroupBox>
+                    <GroupBox x:Name="groupBox_toneSettings" Header="Tone Settings" HorizontalAlignment="Left" Margin="0,8,0,0" Width="400" Style="{DynamicResource MaterialDesignCardGroupBox}" RenderTransformOrigin="0, 0" Height="104">
+                        <StackPanel Orientation="Vertical">
+                            <CheckBox x:Name="chkEbsTones" Content="Include EBS Attention Tones" Margin="4" />
+                            <CheckBox x:Name="chkNwsTone" Content="Include NWS Attention Tone" Margin="4" />
+                        </StackPanel>
+                    </GroupBox>
                 </StackPanel>
-
             </StackPanel>
         </Grid>
         <materialDesign:ColorZone Mode="PrimaryDark" Padding="16" CornerRadius="2" materialDesign:ShadowAssist.ShadowDepth="Depth5" ClipToBounds="False" Margin="2 2 2 2">
@@ -131,3 +139,22 @@
         </materialDesign:ColorZone>
     </Grid>
 </Window>
+    
+<!-- Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" -->
+
+<!--
+<Menu DockPanel.Dock="Top" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed">
+    <MenuItem Header="_File">
+        <MenuItem Header="_New" />
+        <MenuItem Header="_Load alert file" />
+        <MenuItem Header="_Load Announcement From Text" />
+        <MenuItem Header="_Save alert file" />
+        <MenuItem Header="_Export to .WAV file" />
+        <Separator />
+        <MenuItem Header="_Exit" />
+    </MenuItem>
+    <MenuItem Header="Help">
+        <MenuItem Header="About" />
+    </MenuItem>
+</Menu>
+-->
