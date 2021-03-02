@@ -95,7 +95,7 @@ namespace EASEncoder_GUI_WPF
                 TextBlock_ElapsedTime.Text = preview_MediaElement.Position.ToString(@"m\:ss");
                 TextBlock_TotalTime.Text = preview_MediaElement.NaturalDuration.TimeSpan.ToString(@"m\:ss");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -144,7 +144,6 @@ namespace EASEncoder_GUI_WPF
                 {
                     _selectedCounty = MessageRegions.Counties.FirstOrDefault(x => x.State.Id == _selectedState.Id && x.Name == county_SelectionComboBox.Text);
                     if (state_SelectionComboBox.SelectedIndex >= 0 && county_SelectionComboBox.SelectedIndex >= 0 && !Regions.Exists(x => x.County.Id == _selectedCounty.Id && x.State.Id == _selectedState.Id))
-                    //if (state_SelectionComboBox.SelectedIndex >= 0 && county_SelectionComboBox.SelectedIndex >= 0 && !Regions.Exists(x => x.County.Id == _selectedCounty.Id && x.State.Id == _selectedState.Id))
                     {
                         label_stateNotSelectedError.Visibility = Visibility.Hidden;
                         label_countyNotSelectedError.Visibility = Visibility.Hidden;
@@ -157,14 +156,16 @@ namespace EASEncoder_GUI_WPF
                         _selectedCounty = null;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     CheckIfAllLocationCombosArePopulated();
+                    CheckIfTimeRangesAreSelected();
                 }
             }
             else
             {
                 CheckIfAllLocationCombosArePopulated();
+                CheckIfTimeRangesAreSelected();
             }
         }
 
@@ -237,27 +238,56 @@ namespace EASEncoder_GUI_WPF
 
         private void button_previewAlertAudio_Click(object sender, RoutedEventArgs e)
         {
-            DateTime startI = (DateTime)alertStart_DatePicker.SelectedDate;
-            startI.AddHours(alertStart_TimePicker.SelectedTime.Value.Hour);
-            startI.AddMinutes(alertStart_TimePicker.SelectedTime.Value.Minute);
-            _start = startI.ToUniversalTime();
-            _senderId = txtSender.Text;
-            _length = ZeroPad(comboBox_durationInHours.Text, 2) + ZeroPad(comboBox_durationInMinutes.Text, 2);
-            _selectedOriginator = MessageTypes.Originators.FirstOrDefault(y => y.Name == comboOriginator.Text);
-            _selectedAlertCode = MessageTypes.AlertCodes.FirstOrDefault(y => y.Name == comboCode.Text);
-            var newMessage = new EASMessage(_selectedOriginator.Id, _selectedAlertCode.Id, Regions, _length, _start, _senderId);
+            try
+            {
+                DateTime startI = (DateTime)alertStart_DatePicker.SelectedDate;
+                startI.AddHours(alertStart_TimePicker.SelectedTime.Value.Hour);
+                startI.AddMinutes(alertStart_TimePicker.SelectedTime.Value.Minute);
+                _start = startI.ToUniversalTime();
+                _senderId = txtSender.Text;
+                _length = ZeroPad(comboBox_durationInHours.Text, 2) + ZeroPad(comboBox_durationInMinutes.Text, 2);
+                _selectedOriginator = MessageTypes.Originators.FirstOrDefault(y => y.Name == comboOriginator.Text);
+                _selectedAlertCode = MessageTypes.AlertCodes.FirstOrDefault(y => y.Name == comboCode.Text);
+                var newMessage = new EASMessage(_selectedOriginator.Id, _selectedAlertCode.Id, Regions, _length, _start, _senderId);
 
-            MemoryStream audioStream = EASEncoder.EASEncoder.GetMemoryStreamFromNewMessage(newMessage, (bool)chkEbsTones.IsChecked, (bool)chkNwsTone.IsChecked, formatAnnouncement(txtAnnouncement.Text));
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "temp.wav");
-            FileStream faudio_stream = new FileStream(path, FileMode.OpenOrCreate);
-            audioStream.WriteTo(faudio_stream);
-            faudio_stream.Close();
-            audioStream.Close();
+                MemoryStream audioStream = EASEncoder.EASEncoder.GetMemoryStreamFromNewMessage(newMessage, (bool)chkEbsTones.IsChecked, (bool)chkNwsTone.IsChecked, formatAnnouncement(txtAnnouncement.Text));
+                string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "temp.wav");
+                FileStream faudio_stream = new FileStream(path, FileMode.OpenOrCreate);
+                audioStream.WriteTo(faudio_stream);
+                faudio_stream.Close();
+                audioStream.Close();
+                dialogHost_PreviewWindow.IsOpen = true;
+                preview_MediaElement.Source = new Uri(path);
+                timer.Enabled = true;
+                preview_MediaElement.LoadedBehavior = MediaState.Play; //Theoretically, this should make the MediaElement autoplay when it loads the file
+                                                                       //preview_MediaElement.Play();
+            }
+            catch(Exception)
+            {
+                CheckIfTimeRangesAreSelected();
+                dialogHost_PreviewWindow.IsOpen = false;
+            }
+        }
 
-            preview_MediaElement.Source = new Uri(path);
-            timer.Enabled = true;
-            preview_MediaElement.LoadedBehavior = MediaState.Play; //Theoretically, this should make the MediaElement autoplay when it loads the file
-                                                                   //preview_MediaElement.Play();
+        void CheckIfTimeRangesAreSelected()
+        {
+            if ((!(alertStart_DatePicker.SelectedDate.HasValue)) || (!(alertStart_TimePicker.SelectedTime.HasValue)))
+            {
+                label_alertStartsTimeDateSelectionRequiredError.Visibility = Visibility.Visible;
+            }
+            if ((!(comboBox_durationInHours.SelectedIndex == -1)) || (!(comboBox_durationInMinutes.SelectedIndex == -1)))
+            {
+                label_alertValidForSelectionRequiredError.Visibility = Visibility.Visible;
+            }
+        }
+
+        bool AreTimeRangesSelected()
+        {
+            if ( ((!(comboBox_durationInHours.SelectedIndex == -1)) || (!(comboBox_durationInMinutes.SelectedIndex == -1))) && (!(comboBox_durationInHours.SelectedIndex == -1)) || (!(comboBox_durationInMinutes.SelectedIndex == -1)))
+            {
+                return false;
+            }
+            else return true;
         }
 
         void SyncPreviewPlaybackVolume()
@@ -266,7 +296,7 @@ namespace EASEncoder_GUI_WPF
             {
                 preview_MediaElement.Volume = preview_VolumeScrollBar.Value / 100;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -334,9 +364,63 @@ namespace EASEncoder_GUI_WPF
             {
                 preview_MediaElement.Position = TimeSpan.FromMilliseconds(preview_PositionScrollBar.Value);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
+            }
+        }
+
+        private void addItemDialog_menuButton_addWholeState_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //_selectedCounty = MessageRegions.Counties.FirstOrDefault(x => x.State.Id == _selectedState.Id && x.Name == county_SelectionComboBox.Text);
+                if (state_SelectionComboBox.SelectedIndex >= 0)
+                {
+                    dialogHost_AddNewItem.IsOpen = false;
+                    label_stateNotSelectedError.Visibility = Visibility.Hidden;
+                    label_countyNotSelectedError.Visibility = Visibility.Hidden;
+                    MessageRegions.Counties.Where(x => x.State.Id == _selectedState.Id).OrderBy(x => x.Name).ToArray().ToList().ForEach(item =>
+                    {
+                        Regions.Add(new SAMERegion(_selectedState, item));
+                        var bindingList = new BindingList<SAMERegion>(Regions);
+                        var source = new BindingSource(bindingList, null);
+                        datagridRegions.ItemsSource = source;
+                    });
+                }
+                else
+                {
+                    label_stateNotSelectedError.Visibility = Visibility.Visible;
+                    label_countyNotSelectedError.Visibility = Visibility.Hidden;
+                }
+            }
+            catch (Exception)
+            {
+                //CheckIfAllLocationCombosArePopulated();
+            }
+        }
+
+        private void addItemDialog_menuButton_addTheWorld_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                dialogHost_AddNewItem.IsOpen = false;
+                label_stateNotSelectedError.Visibility = Visibility.Hidden;
+                label_countyNotSelectedError.Visibility = Visibility.Hidden;
+                MessageRegions.States.ToArray().ToList().ForEach(state =>
+                {
+                    MessageRegions.Counties.Where(x => x.State.Id == state.Id).OrderBy(x => x.Name).ToArray().ToList().ForEach(county =>
+                    {
+                        Regions.Add(new SAMERegion(state, county));
+                        var bindingList = new BindingList<SAMERegion>(Regions);
+                        var source = new BindingSource(bindingList, null);
+                        datagridRegions.ItemsSource = source;
+                    });
+                });
+            }
+            catch (Exception)
+            {
+                //CheckIfAllLocationCombosArePopulated();
             }
         }
     }

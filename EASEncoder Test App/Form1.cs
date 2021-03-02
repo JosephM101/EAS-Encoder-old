@@ -349,23 +349,34 @@ namespace EASEncoder_Test_App
         }
         void AddAllCounties()
         {
-            for (int i = 0; i < comboCounty.Items.Count; i++)
-            {
-                comboCounty.SelectedIndex = i;
-                _selectedCounty =
-               MessageRegions.Counties.FirstOrDefault(
-                   x => x.State.Id == _selectedState.Id && x.Name == comboCounty.Text);
+            //for (int i = 0; i < comboCounty.Items.Count; i++)
+            //{
+            //    comboCounty.SelectedIndex = i;
+            //    _selectedCounty =
+            //   MessageRegions.Counties.FirstOrDefault(
+            //       x => x.State.Id == _selectedState.Id && x.Name == comboCounty.Text);
+            //
+            //    if (comboState.SelectedIndex >= 0 && comboCounty.SelectedIndex >= 0 && !Regions.Exists(x => x.County.Id == _selectedCounty.Id && x.State.Id == _selectedState.Id))
+            //    {
+            //        Regions.Add(new SAMERegion(_selectedState, _selectedCounty));
+            //        var bindingList = new BindingList<SAMERegion>(Regions);
+            //        var source = new BindingSource(bindingList, null);
+            //        datagridRegions.DataSource = source;
+            //
+            //        comboCounty.SelectedIndex = -1;
+            //        _selectedCounty = null;
+            //    }
+            //}
 
-                if (comboState.SelectedIndex >= 0 && comboCounty.SelectedIndex >= 0 && !Regions.Exists(x => x.County.Id == _selectedCounty.Id && x.State.Id == _selectedState.Id))
+            if (comboState.SelectedIndex >= 0)
+            {
+                MessageRegions.Counties.Where(x => x.State.Id == _selectedState.Id).OrderBy(x => x.Name).ToArray().ToList().ForEach(item =>
                 {
-                    Regions.Add(new SAMERegion(_selectedState, _selectedCounty));
+                    Regions.Add(new SAMERegion(_selectedState, item));
                     var bindingList = new BindingList<SAMERegion>(Regions);
                     var source = new BindingSource(bindingList, null);
                     datagridRegions.DataSource = source;
-
-                    comboCounty.SelectedIndex = -1;
-                    _selectedCounty = null;
-                }
+                });
             }
         }
 

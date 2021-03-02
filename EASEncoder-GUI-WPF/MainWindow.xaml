@@ -16,10 +16,6 @@
         mc:Ignorable="d"
         Title="EAS Encoder" Height="720" Width="920" MinWidth="920" MinHeight="720">
     <Grid>
-        <!--Dialog initializers-->
-
-        <!--End Dialog initializers-->
-
         <DockPanel VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,16,8" Visibility="Collapsed">
@@ -27,7 +23,7 @@
                     <ToggleButton x:Name="switch_DarkModeToggle" Style="{StaticResource MaterialDesignSwitchToggleButton}" IsChecked="False" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Checked="switch_DarkModeToggle_Checked" />
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Horizontal" Width="auto" Margin="0,0,8,8">
-                    <materialDesign:DialogHost CloseOnClickAway="True">
+                    <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_PreviewWindow">
                         <materialDesign:DialogHost.DialogContent>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,8,8,8">
                                 <MediaElement x:Name="preview_MediaElement" />
@@ -50,7 +46,9 @@
                                 </Grid>
                             </StackPanel>
                         </materialDesign:DialogHost.DialogContent>
-                        <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Click="button_previewAlertAudio_Click" />
+                        <!-- <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Click="button_previewAlertAudio_Click" /> -->
+                        <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0" Click="button_previewAlertAudio_Click" />
+                        
                     </materialDesign:DialogHost>
                     <Button x:Name="button_saveAlertToWaveFile" Content="Generate and Save .WAV" Width="auto" Margin="4,0,0,0"/>
                 </StackPanel>
@@ -75,11 +73,13 @@
                                 <Label Content="Alert starts:" Margin="0,0,8,0" Width="90"  HorizontalContentAlignment="Right"/>
                                 <materialDesign:TimePicker x:Name="alertStart_TimePicker" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose time"/>
                                 <DatePicker x:Name="alertStart_DatePicker" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="110" MinWidth="50" materialDesign:HintAssist.Hint="Choose date"/>
+                                <TextBlock x:Name="label_alertStartsTimeDateSelectionRequiredError" Text="These fields are required." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" VerticalAlignment="Center" />
                             </StackPanel>
                             <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
                                 <Label Content="Valid for:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
                                 <ComboBox x:Name="comboBox_durationInHours" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="auto" MinWidth="50" materialDesign:HintAssist.Hint="Hours"/>
                                 <ComboBox x:Name="comboBox_durationInMinutes" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="auto" MinWidth="50" materialDesign:HintAssist.Hint="Minutes"/>
+                                <TextBlock x:Name="label_alertValidForSelectionRequiredError" Text="These fields are required." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" VerticalAlignment="Center"/>
                             </StackPanel>
                             <Label Margin="8,16,0,0" >Event Locations</Label>
                             <Grid Height="240" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Stretch" >
@@ -103,6 +103,14 @@
                                                         <TextBlock x:Name="label_countyNotSelectedError" Text="Please select county." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" />
                                                     </StackPanel>
                                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                                                        <materialDesign:PopupBox StaysOpen="False">
+                                                            <StackPanel>
+                                                                <MenuItem x:Name="addItemDialog_menu_checkBox_keepDialogOpen" Header="Keep dialog open" IsCheckable="True"/>
+                                                                <Separator/>
+                                                                <Button x:Name="addItemDialog_menuButton_addWholeState" Content="Add the whole state" Click="addItemDialog_menuButton_addWholeState_Click"/>
+                                                                <Button x:Name="addItemDialog_menuButton_addTheWorld" Content="Add the world!" Click="addItemDialog_menuButton_addTheWorld_Click"/>
+                                                            </StackPanel>
+                                                        </materialDesign:PopupBox>
                                                         <Button x:Name="button_dialogCancel" Content="CANCEL" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" />
                                                         <Button x:Name="button_confirmAdd" Content="ADD" Click="addLocationButton_Click" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" />
                                                     </StackPanel>
