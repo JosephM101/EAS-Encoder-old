@@ -423,5 +423,30 @@ namespace EASEncoder_GUI_WPF
                 //CheckIfAllLocationCombosArePopulated();
             }
         }
+
+        private void appMenu_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            dialogHost_exitWithoutSaving.IsOpen = true;
+        }
+
+        private void exitDialog_Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void appMenu_saveAlertFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void appMenu_loadAlertFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void appMenu_newAlert_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
