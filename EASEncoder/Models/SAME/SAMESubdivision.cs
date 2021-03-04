@@ -1,5 +1,8 @@
-﻿namespace EASEncoder.Models.SAME
+﻿using System;
+
+namespace EASEncoder.Models.SAME
 {
+    [Serializable]
     public class SAMESubdivision
     {
         public SAMESubdivision(int id, string name)

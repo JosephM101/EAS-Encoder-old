@@ -1,5 +1,8 @@
-﻿namespace EASEncoder.Models.SAME
+﻿using System;
+
+namespace EASEncoder.Models.SAME
 {
+    [Serializable]
     public class SAMEMessageOriginator
     {
         public SAMEMessageOriginator(string id, string name)

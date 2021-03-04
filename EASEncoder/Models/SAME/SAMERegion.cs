@@ -1,7 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace EASEncoder.Models.SAME
 {
+    [Serializable]
     public class SAMERegion
     {
         [DisplayName("County Name")]

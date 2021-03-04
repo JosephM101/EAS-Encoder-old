@@ -21,15 +21,18 @@ using NAudio.Wave;
 using MaterialDesignThemes.Wpf;
 using System.Threading;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using Polenter.Serialization;
 
 namespace EASEncoder_GUI_WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    [Serializable]
     public partial class MainWindow : Window
     {
-        private readonly List<SAMERegion> Regions = new List<SAMERegion>();
+        private List<SAMERegion> Regions = new List<SAMERegion>();
         private string _length;
         private SAMEMessageAlertCode _selectedAlertCode;
         private SAMECounty _selectedCounty;
@@ -42,8 +45,15 @@ namespace EASEncoder_GUI_WPF
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer volumeTimer = new System.Windows.Forms.Timer();
 
+        string EAS_FileExtension = "easf";
+        string EAS_FileDialogFilterString;
+        SaveFileDialog saveAlertFileDialog = new SaveFileDialog();
+        OpenFileDialog loadAlertFileDialog = new OpenFileDialog();
+
         public MainWindow()
         {
+            EAS_FileDialogFilterString = "EAS Encoder Document|*." + EAS_FileExtension;
+
             InitializeComponent();
             //string[] alertCodes = MessageTypes.AlertCodes.OrderBy(x => x.Name).Select(x => x.Name).ToArray();
             //string[] originators = MessageTypes.Originators.OrderBy(x => x.Name).Select(x => x.Name).ToArray();
@@ -69,6 +79,12 @@ namespace EASEncoder_GUI_WPF
             }
             comboBox_durationInHours.SelectedIndex = 1;
             comboBox_durationInMinutes.SelectedIndex = 0;
+
+            saveAlertFileDialog.Title = "Save Alert file";
+            loadAlertFileDialog.Title = "Load Alert file";
+            saveAlertFileDialog.DefaultExt = EAS_FileExtension;
+            saveAlertFileDialog.Filter = EAS_FileDialogFilterString;
+            loadAlertFileDialog.Filter = EAS_FileDialogFilterString;
         }
 
         private void VolumeTimer_Tick(object sender, EventArgs e)
@@ -262,7 +278,7 @@ namespace EASEncoder_GUI_WPF
                 preview_MediaElement.LoadedBehavior = MediaState.Play; //Theoretically, this should make the MediaElement autoplay when it loads the file
                                                                        //preview_MediaElement.Play();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 CheckIfTimeRangesAreSelected();
                 dialogHost_PreviewWindow.IsOpen = false;
@@ -283,7 +299,7 @@ namespace EASEncoder_GUI_WPF
 
         bool AreTimeRangesSelected()
         {
-            if ( ((!(comboBox_durationInHours.SelectedIndex == -1)) || (!(comboBox_durationInMinutes.SelectedIndex == -1))) && (!(comboBox_durationInHours.SelectedIndex == -1)) || (!(comboBox_durationInMinutes.SelectedIndex == -1)))
+            if (((!(comboBox_durationInHours.SelectedIndex == -1)) || (!(comboBox_durationInMinutes.SelectedIndex == -1))) && (!(comboBox_durationInHours.SelectedIndex == -1)) || (!(comboBox_durationInMinutes.SelectedIndex == -1)))
             {
                 return false;
             }
@@ -436,17 +452,116 @@ namespace EASEncoder_GUI_WPF
 
         private void appMenu_saveAlertFile_Click(object sender, RoutedEventArgs e)
         {
-
+            //DialogResult result = saveAlertFileDialog.ShowDialog();
+            //if (result == System.Windows.Forms.DialogResult.OK)
+            //{
+            //}
+            DirectoryInfo tempDir = Directory.CreateDirectory("temp");
+            var serializer = new SharpSerializer();
+            WriteToBinaryFile(System.IO.Path.Combine(tempDir.FullName, "regions"), Regions);
+            CautiousSerialize(alertStart_TimePicker.SelectedTime, System.IO.Path.Combine(tempDir.FullName, "startTime"));
+            CautiousSerialize(alertStart_DatePicker.SelectedDate, System.IO.Path.Combine(tempDir.FullName, "startDate"));
+            CautiousSerialize(comboOriginator.SelectedIndex, System.IO.Path.Combine(tempDir.FullName, "id_originator"));
+            CautiousSerialize(comboCode.SelectedIndex, System.IO.Path.Combine(tempDir.FullName, "id_code"));
+            //WriteToBinaryFile(System.IO.Path.Combine(tempDir.FullName, "startTime"), alertStart_TimePicker);
+            //WriteToBinaryFile(System.IO.Path.Combine(tempDir.FullName, "startDate"), alertStart_DatePicker);
         }
 
         private void appMenu_loadAlertFile_Click(object sender, RoutedEventArgs e)
         {
+            //alertStart_TimePicker = ReadFromBinaryFile<TimePicker>("temp/startTime");
+            string tempDir = "temp/";
+            var serializer = new SharpSerializer();
+            alertStart_TimePicker.SelectedTime = (DateTime?)serializer.Deserialize(System.IO.Path.Combine(tempDir, "startTime"));
+            alertStart_DatePicker.SelectedDate = (DateTime?)serializer.Deserialize(System.IO.Path.Combine(tempDir, "startDate"));
+            comboOriginator.SelectedIndex = (int)serializer.Deserialize(System.IO.Path.Combine(tempDir, "id_originator"));
+            comboCode.SelectedIndex = (int)serializer.Deserialize(System.IO.Path.Combine(tempDir, "temp/id_code"));
 
+            Regions = ReadFromBinaryFile<List<SAMERegion>>(System.IO.Path.Combine(tempDir, "regions"));
+            var bindingList = new BindingList<SAMERegion>(Regions);
+            var source = new BindingSource(bindingList, null);
+            datagridRegions.ItemsSource = source;
         }
 
         private void appMenu_newAlert_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void button_saveAlertToWaveFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        void CautiousRun(Action method)
+        {
+            try
+            {
+                method();
+            }
+            catch
+            {
+
+            }
+        }
+
+        void CautiousSerialize(object o, string path)
+        {
+            try
+            {
+                var serializer = new SharpSerializer();
+                serializer.Serialize(o, path);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        void CautiousDeserialize(object outTo, string path)
+        {
+            //try
+            //{
+                var serializer = new SharpSerializer();
+                outTo = serializer.Deserialize(path);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
+        }
+
+        /// <summary>
+        /// Writes the given object instance to a binary file.
+        /// <para>Object type (and all child types) must be decorated with the [Serializable] attribute.</para>
+        /// <para>To prevent a variable from being serialized, decorate it with the [NonSerialized] attribute; cannot be applied to properties.</para>
+        /// </summary>
+        /// <typeparam name="T">The type of object being written to the XML file.</typeparam>
+        /// <param name="filePath">The file path to write the object instance to.</param>
+        /// <param name="objectToWrite">The object instance to write to the XML file.</param>
+        /// <param name="append">If false the file will be overwritten if it already exists. If true the contents will be appended to the file.</param>
+        public static void WriteToBinaryFile<T>(string filePath, T objectToWrite, bool append = false)
+        {
+            using (Stream stream = File.Open(filePath, append ? FileMode.Append : FileMode.Create))
+            {
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                binaryFormatter.Serialize(stream, objectToWrite);
+            }
+        }
+
+        /// <summary>
+        /// Reads an object instance from a binary file.
+        /// </summary>
+        /// <typeparam name="T">The type of object to read from the XML.</typeparam>
+        /// <param name="filePath">The file path to read the object instance from.</param>
+        /// <returns>Returns a new instance of the object read from the binary file.</returns>
+        public static T ReadFromBinaryFile<T>(string filePath)
+        {
+            using (Stream stream = File.Open(filePath, FileMode.Open))
+            {
+                var binaryFormatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                return (T)binaryFormatter.Deserialize(stream);
+            }
         }
     }
 }

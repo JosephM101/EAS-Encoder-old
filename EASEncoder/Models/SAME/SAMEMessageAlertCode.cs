@@ -1,5 +1,8 @@
-﻿namespace EASEncoder.Models.SAME
+﻿using System;
+
+namespace EASEncoder.Models.SAME
 {
+    [Serializable]
     public class SAMEMessageAlertCode
     {
         public SAMEMessageAlertCode(string id, string name)

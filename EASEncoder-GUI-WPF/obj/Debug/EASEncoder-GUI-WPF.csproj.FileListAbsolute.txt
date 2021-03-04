@@ -39,3 +39,8 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\Materia
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\MaterialDesignThemes.Wpf.pdb
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\App.baml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\Polenter.SharpSerializer.dll
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\ICSharpCode.SharpZipLib.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\Polenter.SharpSerializer.xml

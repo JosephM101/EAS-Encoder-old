@@ -16,6 +16,28 @@
         mc:Ignorable="d"
         Title="EAS Encoder" Height="720" Width="920" MinWidth="920" MinHeight="720">
     <Grid>
+        <!--#region Dialogs-->
+        <!-- AppExit dialog -->
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_exitWithoutSaving">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,16,8,4">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Warning" Width="32" Height="32" Margin="8,0,0,0"/>
+                        <StackPanel Margin="16,0,8,0">
+                            <TextBlock Text="Exit?" FontSize="18" VerticalAlignment="Center" Width="auto" TextWrapping="Wrap" Margin="0,6,0,8"/>
+                            <TextBlock Text="Are you sure you want to exit? Any unsaved changes will be lost." VerticalAlignment="Center" Margin="0,0,8,0" Width="256" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Button x:Name="exitDialog_Ignore" Content="NO" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
+                        <Button x:Name="exitDialog_Confirm" Content="YES" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Click="exitDialog_Confirm_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <!--#endregion-->
+        
+        <!-- Main window -->
         <DockPanel VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
                 <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,16,8" Visibility="Collapsed">
@@ -50,7 +72,7 @@
                         <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0" Click="button_previewAlertAudio_Click" />
                         
                     </materialDesign:DialogHost>
-                    <Button x:Name="button_saveAlertToWaveFile" Content="Generate and Save .WAV" Width="auto" Margin="4,0,0,0"/>
+                    <Button x:Name="button_saveAlertToWaveFile" Content="Generate and Save .WAV" Width="auto" Margin="4,0,0,0" Click="button_saveAlertToWaveFile_Click"/>
                 </StackPanel>
             </StackPanel>
             <materialDesign:Snackbar x:Name="main_snackbar" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch"/>
@@ -153,25 +175,6 @@
                 <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="18" HorizontalAlignment="Center" Padding="0,2,0,0"><Run Text="EAS Encoder"/></TextBlock>
             </StackPanel>
         </materialDesign:ColorZone>
-        
-        <!-- AppExit dialog -->
-        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_exitWithoutSaving">
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,16,8,4">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Warning" Width="32" Height="32" Margin="8,0,0,0"/>
-                        <StackPanel Margin="16,0,8,0">
-                            <TextBlock Text="Exit?" FontSize="18" VerticalAlignment="Center" Width="auto" TextWrapping="Wrap" Margin="0,6,0,8"/>
-                            <TextBlock Text="Are you sure you want to exit? Any unsaved changes will be lost." VerticalAlignment="Center" Margin="0,0,8,0" Width="256" TextWrapping="Wrap"/>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <Button x:Name="exitDialog_Ignore" Content="NO" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
-                        <Button x:Name="exitDialog_Confirm" Content="YES" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Click="exitDialog_Confirm_Click" />
-                    </StackPanel>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
     </Grid>
 </Window>
     

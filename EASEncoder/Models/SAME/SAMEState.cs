@@ -1,5 +1,8 @@
-﻿namespace EASEncoder.Models.SAME
+﻿using System;
+
+namespace EASEncoder.Models.SAME
 {
+    [Serializable]
     public class SAMEState
     {
         public SAMEState(int id, string name)

@@ -23,3 +23,4 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEnc
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EASEncoder GUI.csproj.CopyComplete
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EAS Encoder.exe
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Debug\EAS Encoder.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Debug\Polenter.SharpSerializer.xml
