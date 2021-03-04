@@ -21,25 +21,3 @@ C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\
 C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.CopyComplete
 C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.dll
 C:\Users\jmig2\OneDrive\Visual Studio\Projects\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.pdb
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\libmp3lame.32.dll
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\libmp3lame.64.dll
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\EASEncoder.dll.config
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\EASEncoder.dll
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\EASEncoder.pdb
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\Microsoft.Win32.Registry.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\NAudio.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\Plugin.TextToSpeech.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\Polenter.SharpSerializer.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\System.Buffers.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\System.Diagnostics.DiagnosticSource.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\System.Memory.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\System.Security.AccessControl.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\System.Security.Principal.Windows.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csprojAssemblyReference.cache
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.CoreCompileInputs.cache
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.Fody.CopyLocal.cache
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.CopyComplete
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.dll
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.pdb
