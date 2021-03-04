@@ -39,3 +39,5 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.dll
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.pdb
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csprojAssemblyReference.cache
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Debug\Polenter.SharpSerializer.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.Properties.Resources.resources
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.GenerateResource.cache
