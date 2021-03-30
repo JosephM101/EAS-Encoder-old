@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="EAS Encoder" Height="720" Width="986.4" MinWidth="920" MinHeight="720">
+        Title="EAS Encoder" Height="720" Width="946.4" MinWidth="920" MinHeight="720">
     <Grid>
         <!--#region Dialogs-->
         <!-- AppExit dialog -->
@@ -48,7 +48,7 @@
                     <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_PreviewWindow">
                         <materialDesign:DialogHost.DialogContent>
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,8,8,8">
-                                <MediaElement x:Name="preview_MediaElement" />
+                                <MediaElement x:Name="preview_MediaElement" MediaEnded="preview_MediaElement_MediaEnded" />
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="4,0,4,0">
                                         <TextBlock x:Name="TextBlock_ElapsedTime" Text="0:00" VerticalAlignment="Center" />

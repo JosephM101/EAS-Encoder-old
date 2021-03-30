@@ -563,5 +563,10 @@ namespace EASEncoder_GUI_WPF
                 return (T)binaryFormatter.Deserialize(stream);
             }
         }
+
+        private void preview_MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            dialogHost_PreviewWindow.IsOpen = false;
+        }
     }
 }
