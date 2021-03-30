@@ -14,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="EAS Encoder" Height="720" Width="920" MinWidth="920" MinHeight="720">
+        Title="EAS Encoder" Height="720" Width="986.4" MinWidth="920" MinHeight="720">
     <Grid>
         <!--#region Dialogs-->
         <!-- AppExit dialog -->
@@ -36,7 +36,7 @@
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
         <!--#endregion-->
-        
+
         <!-- Main window -->
         <DockPanel VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
@@ -70,7 +70,7 @@
                         </materialDesign:DialogHost.DialogContent>
                         <!-- <Button x:Name="button_previewAlertAudio" Content="Preview" Width="auto" Margin="0,0,4,0" Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Click="button_previewAlertAudio_Click" /> -->
                         <Button x:Name="button_previewAlertAudio" Content="PREVIEW AUDIO" Width="auto" Margin="0,0,4,0" Click="button_previewAlertAudio_Click" />
-                        
+
                     </materialDesign:DialogHost>
                     <Button x:Name="button_saveAlertToWaveFile" Content="GENERATE &amp; SAVE WAV" Width="auto" Margin="4,0,0,0" Click="button_saveAlertToWaveFile_Click"/>
                 </StackPanel>
@@ -89,7 +89,7 @@
                             <ComboBox x:Name="comboCode" Style="{StaticResource MaterialDesignFilledComboBox}" HorizontalAlignment="Left" Margin="0,12,0,0" VerticalAlignment="Top" Width="283" materialDesign:HintAssist.Hint="Alert Code" RenderTransformOrigin="0.508,0.436" SelectionChanged="comboCode_SelectionChanged" />
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" Margin="0,8,0,0" Width="475" Style="{DynamicResource MaterialDesignCardGroupBox}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Height="397">
+                    <GroupBox x:Name="groupBox_alertLocationAndTime" Header="Alert Location(s) &amp; Time" Margin="0,8,0,0" Width="506" Style="{DynamicResource MaterialDesignCardGroupBox}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Height="397">
                         <StackPanel Orientation="Vertical" CanVerticallyScroll="True" VerticalAlignment="Stretch">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563">
                                 <Label Content="Alert starts:" Margin="0,0,8,0" Width="90"  HorizontalContentAlignment="Right"/>
@@ -100,7 +100,9 @@
                             <StackPanel HorizontalAlignment="Left" Height="auto" Margin="0,4,0,0" VerticalAlignment="Top" Width="auto" RenderTransformOrigin="0.495,0.563" CanHorizontallyScroll="True" Orientation="Horizontal">
                                 <Label Content="Valid for:" Margin="0,0,8,0" Width="90" HorizontalContentAlignment="Right"/>
                                 <ComboBox x:Name="comboBox_durationInHours" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="auto" MinWidth="50" materialDesign:HintAssist.Hint="Hours"/>
-                                <ComboBox x:Name="comboBox_durationInMinutes" HorizontalAlignment="Left" Margin="16,0,0,0" VerticalAlignment="Top" Width="auto" MinWidth="50" materialDesign:HintAssist.Hint="Minutes"/>
+                                <Label Content=" hour(s) and" Margin="0,0,0,0" Width="auto"/>
+                                <ComboBox x:Name="comboBox_durationInMinutes" HorizontalAlignment="Left" Margin="8,0,0,0" VerticalAlignment="Top" Width="auto" MinWidth="50" materialDesign:HintAssist.Hint="Minutes"/>
+                                <Label Content=" minute(s)" Margin="0,0,0,0" Width="auto"/>
                                 <TextBlock x:Name="label_alertValidForSelectionRequiredError" Text="These fields are required." Foreground="Red" FontSize="10" FontFamily="Roboto Medium" Margin="8,2,0,0" Visibility="Hidden" VerticalAlignment="Center"/>
                             </StackPanel>
                             <Label Margin="8,16,0,0" >Event Locations</Label>
@@ -177,7 +179,7 @@
         </materialDesign:ColorZone>
     </Grid>
 </Window>
-    
+
 <!-- Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" -->
 
 <!--

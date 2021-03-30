@@ -236,7 +236,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 103 "..\..\MainWindow.xaml"
+        #line 104 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox comboBox_durationInMinutes;
         
@@ -244,7 +244,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 104 "..\..\MainWindow.xaml"
+        #line 106 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock label_alertValidForSelectionRequiredError;
         
@@ -252,7 +252,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 108 "..\..\MainWindow.xaml"
+        #line 110 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid datagridRegions;
         
@@ -260,7 +260,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 115 "..\..\MainWindow.xaml"
+        #line 117 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button deleteLocationButton;
         
@@ -268,7 +268,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 116 "..\..\MainWindow.xaml"
+        #line 118 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal MaterialDesignThemes.Wpf.DialogHost dialogHost_AddNewItem;
         
@@ -276,7 +276,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 120 "..\..\MainWindow.xaml"
+        #line 122 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox state_SelectionComboBox;
         
@@ -284,7 +284,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 121 "..\..\MainWindow.xaml"
+        #line 123 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock label_stateNotSelectedError;
         
@@ -292,7 +292,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 124 "..\..\MainWindow.xaml"
+        #line 126 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox county_SelectionComboBox;
         
@@ -300,7 +300,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 125 "..\..\MainWindow.xaml"
+        #line 127 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock label_countyNotSelectedError;
         
@@ -308,7 +308,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 130 "..\..\MainWindow.xaml"
+        #line 132 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.MenuItem addItemDialog_menu_checkBox_keepDialogOpen;
         
@@ -316,7 +316,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 132 "..\..\MainWindow.xaml"
+        #line 134 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button addItemDialog_menuButton_addWholeState;
         
@@ -324,7 +324,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 133 "..\..\MainWindow.xaml"
+        #line 135 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button addItemDialog_menuButton_addTheWorld;
         
@@ -332,7 +332,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 136 "..\..\MainWindow.xaml"
+        #line 138 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button button_dialogCancel;
         
@@ -340,7 +340,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 137 "..\..\MainWindow.xaml"
+        #line 139 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button button_confirmAdd;
         
@@ -348,7 +348,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 141 "..\..\MainWindow.xaml"
+        #line 143 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button addLocationButton;
         
@@ -356,7 +356,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 150 "..\..\MainWindow.xaml"
+        #line 152 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.GroupBox groupBox_message;
         
@@ -364,7 +364,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 152 "..\..\MainWindow.xaml"
+        #line 154 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtAnnouncement;
         
@@ -372,7 +372,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 155 "..\..\MainWindow.xaml"
+        #line 157 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.GroupBox groupBox_toneSettings;
         
@@ -380,7 +380,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 157 "..\..\MainWindow.xaml"
+        #line 159 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.CheckBox chkEbsTones;
         
@@ -388,7 +388,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 158 "..\..\MainWindow.xaml"
+        #line 160 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.CheckBox chkNwsTone;
         
@@ -396,7 +396,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 168 "..\..\MainWindow.xaml"
+        #line 170 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button appMenu_newAlert;
         
@@ -404,7 +404,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 169 "..\..\MainWindow.xaml"
+        #line 171 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button appMenu_loadAlertFile;
         
@@ -412,7 +412,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 170 "..\..\MainWindow.xaml"
+        #line 172 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button appMenu_saveAlertFile;
         
@@ -420,7 +420,7 @@ namespace EASEncoder_GUI_WPF {
         #line hidden
         
         
-        #line 172 "..\..\MainWindow.xaml"
+        #line 174 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button appMenu_Exit;
         
@@ -589,7 +589,7 @@ namespace EASEncoder_GUI_WPF {
             case 28:
             this.deleteLocationButton = ((System.Windows.Controls.Button)(target));
             
-            #line 115 "..\..\MainWindow.xaml"
+            #line 117 "..\..\MainWindow.xaml"
             this.deleteLocationButton.Click += new System.Windows.RoutedEventHandler(this.deleteLocationButton_Click);
             
             #line default
@@ -601,7 +601,7 @@ namespace EASEncoder_GUI_WPF {
             case 30:
             this.state_SelectionComboBox = ((System.Windows.Controls.ComboBox)(target));
             
-            #line 120 "..\..\MainWindow.xaml"
+            #line 122 "..\..\MainWindow.xaml"
             this.state_SelectionComboBox.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.state_SelectionComboBox_SelectionChanged);
             
             #line default
@@ -613,13 +613,13 @@ namespace EASEncoder_GUI_WPF {
             case 32:
             this.county_SelectionComboBox = ((System.Windows.Controls.ComboBox)(target));
             
-            #line 124 "..\..\MainWindow.xaml"
+            #line 126 "..\..\MainWindow.xaml"
             this.county_SelectionComboBox.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.county_SelectionComboBox_SelectionChanged);
             
             #line default
             #line hidden
             
-            #line 124 "..\..\MainWindow.xaml"
+            #line 126 "..\..\MainWindow.xaml"
             this.county_SelectionComboBox.DataContextChanged += new System.Windows.DependencyPropertyChangedEventHandler(this.county_SelectionComboBox_DataContextChanged);
             
             #line default
@@ -634,7 +634,7 @@ namespace EASEncoder_GUI_WPF {
             case 35:
             this.addItemDialog_menuButton_addWholeState = ((System.Windows.Controls.Button)(target));
             
-            #line 132 "..\..\MainWindow.xaml"
+            #line 134 "..\..\MainWindow.xaml"
             this.addItemDialog_menuButton_addWholeState.Click += new System.Windows.RoutedEventHandler(this.addItemDialog_menuButton_addWholeState_Click);
             
             #line default
@@ -643,7 +643,7 @@ namespace EASEncoder_GUI_WPF {
             case 36:
             this.addItemDialog_menuButton_addTheWorld = ((System.Windows.Controls.Button)(target));
             
-            #line 133 "..\..\MainWindow.xaml"
+            #line 135 "..\..\MainWindow.xaml"
             this.addItemDialog_menuButton_addTheWorld.Click += new System.Windows.RoutedEventHandler(this.addItemDialog_menuButton_addTheWorld_Click);
             
             #line default
@@ -655,7 +655,7 @@ namespace EASEncoder_GUI_WPF {
             case 38:
             this.button_confirmAdd = ((System.Windows.Controls.Button)(target));
             
-            #line 137 "..\..\MainWindow.xaml"
+            #line 139 "..\..\MainWindow.xaml"
             this.button_confirmAdd.Click += new System.Windows.RoutedEventHandler(this.addLocationButton_Click);
             
             #line default
@@ -670,7 +670,7 @@ namespace EASEncoder_GUI_WPF {
             case 41:
             this.txtAnnouncement = ((System.Windows.Controls.TextBox)(target));
             
-            #line 152 "..\..\MainWindow.xaml"
+            #line 154 "..\..\MainWindow.xaml"
             this.txtAnnouncement.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.textBox1_TextChanged);
             
             #line default
@@ -688,7 +688,7 @@ namespace EASEncoder_GUI_WPF {
             case 45:
             this.appMenu_newAlert = ((System.Windows.Controls.Button)(target));
             
-            #line 168 "..\..\MainWindow.xaml"
+            #line 170 "..\..\MainWindow.xaml"
             this.appMenu_newAlert.Click += new System.Windows.RoutedEventHandler(this.appMenu_newAlert_Click);
             
             #line default
@@ -697,7 +697,7 @@ namespace EASEncoder_GUI_WPF {
             case 46:
             this.appMenu_loadAlertFile = ((System.Windows.Controls.Button)(target));
             
-            #line 169 "..\..\MainWindow.xaml"
+            #line 171 "..\..\MainWindow.xaml"
             this.appMenu_loadAlertFile.Click += new System.Windows.RoutedEventHandler(this.appMenu_loadAlertFile_Click);
             
             #line default
@@ -706,7 +706,7 @@ namespace EASEncoder_GUI_WPF {
             case 47:
             this.appMenu_saveAlertFile = ((System.Windows.Controls.Button)(target));
             
-            #line 170 "..\..\MainWindow.xaml"
+            #line 172 "..\..\MainWindow.xaml"
             this.appMenu_saveAlertFile.Click += new System.Windows.RoutedEventHandler(this.appMenu_saveAlertFile_Click);
             
             #line default
@@ -715,7 +715,7 @@ namespace EASEncoder_GUI_WPF {
             case 48:
             this.appMenu_Exit = ((System.Windows.Controls.Button)(target));
             
-            #line 172 "..\..\MainWindow.xaml"
+            #line 174 "..\..\MainWindow.xaml"
             this.appMenu_Exit.Click += new System.Windows.RoutedEventHandler(this.appMenu_Exit_Click);
             
             #line default
