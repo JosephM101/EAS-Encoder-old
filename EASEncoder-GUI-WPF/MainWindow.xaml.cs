@@ -155,7 +155,10 @@ namespace EASEncoder_GUI_WPF
         {
             if (AreAllLocationCombosPopulated())
             {
-                dialogHost_AddNewItem.IsOpen = false;
+                if (!addItemDialog_menu_checkBox_keepDialogOpen.IsChecked)
+                {
+                    dialogHost_AddNewItem.IsOpen = false;
+                }
                 try
                 {
                     _selectedCounty = MessageRegions.Counties.FirstOrDefault(x => x.State.Id == _selectedState.Id && x.Name == county_SelectionComboBox.Text);
