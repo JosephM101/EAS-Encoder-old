@@ -45,7 +45,13 @@ namespace EASEncoder_GUI_WPF
         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         System.Windows.Forms.Timer volumeTimer = new System.Windows.Forms.Timer();
 
+        /// <summary>
+        /// File extension for EAS Encoder documents
+        /// </summary>
         string EAS_FileExtension = "easf";
+        /// <summary>
+        /// Filter for SaveFileDialog / OpenFileDialog (EAS File Extension)
+        /// </summary>
         string EAS_FileDialogFilterString;
         SaveFileDialog saveAlertFileDialog = new SaveFileDialog();
         OpenFileDialog loadAlertFileDialog = new OpenFileDialog();
@@ -321,6 +327,9 @@ namespace EASEncoder_GUI_WPF
             }
         }
 
+        /// <summary>
+        /// Convert announcement text into speakable text (expand abbreviations)
+        /// </summary>
         private string formatAnnouncement(string announcement)
         {
             return
@@ -508,6 +517,9 @@ namespace EASEncoder_GUI_WPF
             }
         }
 
+        /// <summary>
+        /// Serializer (Cautious: hides exception if serialization fails)
+        /// </summary>
         void CautiousSerialize(object o, string path)
         {
             try
@@ -521,12 +533,15 @@ namespace EASEncoder_GUI_WPF
             }
         }
 
+        /// <summary>
+        /// Deserializer (Cautious: hides exception if deserialization fails)
+        /// </summary>
         void CautiousDeserialize(object outTo, string path)
         {
             //try
             //{
-                var serializer = new SharpSerializer();
-                outTo = serializer.Deserialize(path);
+            var serializer = new SharpSerializer();
+            outTo = serializer.Deserialize(path);
             //}
             //catch (Exception ex)
             //{
@@ -555,6 +570,7 @@ namespace EASEncoder_GUI_WPF
         /// <summary>
         /// Reads an object instance from a binary file.
         /// </summary>
+        /// <remarks>Used for loading EAS Documents which are saved as raw binary files</remarks>
         /// <typeparam name="T">The type of object to read from the XML.</typeparam>
         /// <param name="filePath">The file path to read the object instance from.</param>
         /// <returns>Returns a new instance of the object read from the binary file.</returns>
