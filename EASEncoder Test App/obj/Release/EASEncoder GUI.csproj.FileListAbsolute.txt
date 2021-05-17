@@ -23,3 +23,5 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Release\EASE
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Release\EASEncoder GUI.csproj.CopyComplete
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Release\EAS Encoder.exe
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\obj\Release\EAS Encoder.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Release\Newtonsoft.Json.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder Test App\bin\Release\Polenter.SharpSerializer.xml

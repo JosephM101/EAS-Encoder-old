@@ -9,7 +9,6 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\Plugin.TextTo
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\System.Diagnostics.DiagnosticSource.xml
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\System.Security.AccessControl.xml
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\System.Security.Principal.Windows.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.csprojAssemblyReference.cache
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.csproj.CoreCompileInputs.cache
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.csproj.Fody.CopyLocal.cache
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.csproj.CopyComplete
