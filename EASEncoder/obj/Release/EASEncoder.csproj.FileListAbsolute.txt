@@ -15,3 +15,9 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.cs
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.csproj.CopyComplete
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.dll
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Release\EASEncoder.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\Newtonsoft.Json.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\Polenter.SharpSerializer.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\System.Buffers.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\System.Memory.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\System.Numerics.Vectors.xml
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\bin\Release\System.Runtime.CompilerServices.Unsafe.xml

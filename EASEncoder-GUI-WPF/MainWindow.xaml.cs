@@ -23,6 +23,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Runtime.Serialization;
 using Polenter.Serialization;
+using System.IO.Compression;
 
 namespace EASEncoder_GUI_WPF
 {
@@ -52,13 +53,15 @@ namespace EASEncoder_GUI_WPF
         /// <summary>
         /// Filter for SaveFileDialog / OpenFileDialog (EAS File Extension)
         /// </summary>
-        string EAS_FileDialogFilterString;
+        string EAS_FileDialogFilterString; //Assigned later
         SaveFileDialog saveAlertFileDialog = new SaveFileDialog();
+        SaveFileDialog saveAudioOutputFileDialog = new SaveFileDialog();
         OpenFileDialog loadAlertFileDialog = new OpenFileDialog();
 
         public MainWindow()
         {
             EAS_FileDialogFilterString = "EAS Encoder Document|*." + EAS_FileExtension;
+            saveAudioOutputFileDialog.Filter = "Lossless Audio File|*.wav";
 
             InitializeComponent();
             //string[] alertCodes = MessageTypes.AlertCodes.OrderBy(x => x.Name).Select(x => x.Name).ToArray();
@@ -91,6 +94,62 @@ namespace EASEncoder_GUI_WPF
             saveAlertFileDialog.DefaultExt = EAS_FileExtension;
             saveAlertFileDialog.Filter = EAS_FileDialogFilterString;
             loadAlertFileDialog.Filter = EAS_FileDialogFilterString;
+
+            preview_MediaElement.MediaEnded += Preview_MediaElement_MediaEnded;
+            button_dismissPreview.Click += Button_dismissPreview_Click;
+            appMenu_newAlert.Click += AppMenu_newAlert_Click;
+            InitializeAlertProject();
+        }
+
+        private void AppMenu_newAlert_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeAlertProject();
+        }
+
+        void InitializeAlertProject()
+        {
+            alertStart_TimePicker.SelectedTime = null;
+            alertStart_DatePicker.SelectedDate = null;
+            comboOriginator.SelectedIndex = -1;
+            comboCode.SelectedIndex = -1;
+            Regions = new List<SAMERegion>();
+            comboBox_durationInHours.SelectedIndex = 1;
+            comboBox_durationInMinutes.SelectedIndex = 0;
+            txtSender.Text = "12345678";
+            chkEbsTones.IsChecked = false;
+            chkNwsTone.IsChecked = false;
+            txtAnnouncement.Text = "";
+            _selectedAlertCode = null;
+            _selectedCounty = null;
+            _selectedOriginator = null;
+            _selectedState = null;
+            _senderId = "";
+            var bindingList = new BindingList<SAMERegion>(Regions);
+            var source = new BindingSource(bindingList, null);
+            datagridRegions.ItemsSource = source;
+        }
+
+        private void Button_dismissPreview_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteTempFile();
+        }
+
+        void DeleteTempFile()
+        {
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.DoWork += Bw_DoWork;
+            bw.RunWorkerAsync();
+        }
+
+        private void Bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "preview.wav");
+            File.Delete(path);
+        }
+
+        private void Preview_MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            DeleteTempFile();
         }
 
         private void VolumeTimer_Tick(object sender, EventArgs e)
@@ -261,31 +320,37 @@ namespace EASEncoder_GUI_WPF
             }
         }
 
+        void ExportAudio(string output_path)
+        {
+            DateTime startI = (DateTime)alertStart_DatePicker.SelectedDate;
+            startI.AddHours(alertStart_TimePicker.SelectedTime.Value.Hour);
+            startI.AddMinutes(alertStart_TimePicker.SelectedTime.Value.Minute);
+            _start = startI.ToUniversalTime();
+            _senderId = txtSender.Text;
+            _length = ZeroPad(comboBox_durationInHours.Text, 2) + ZeroPad(comboBox_durationInMinutes.Text, 2);
+            _selectedOriginator = MessageTypes.Originators.FirstOrDefault(y => y.Name == comboOriginator.Text);
+            _selectedAlertCode = MessageTypes.AlertCodes.FirstOrDefault(y => y.Name == comboCode.Text);
+            var newMessage = new EASMessage(_selectedOriginator.Id, _selectedAlertCode.Id, Regions, _length, _start, _senderId);
+
+            MemoryStream audioStream = EASEncoder.EASEncoder.GetMemoryStreamFromNewMessage(newMessage, (bool)chkEbsTones.IsChecked, (bool)chkNwsTone.IsChecked, formatAnnouncement(txtAnnouncement.Text));
+            
+            FileStream faudio_stream = new FileStream(output_path, FileMode.OpenOrCreate);
+            audioStream.WriteTo(faudio_stream);
+            faudio_stream.Close();
+            audioStream.Close();
+        }
+
         private void button_previewAlertAudio_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                DateTime startI = (DateTime)alertStart_DatePicker.SelectedDate;
-                startI.AddHours(alertStart_TimePicker.SelectedTime.Value.Hour);
-                startI.AddMinutes(alertStart_TimePicker.SelectedTime.Value.Minute);
-                _start = startI.ToUniversalTime();
-                _senderId = txtSender.Text;
-                _length = ZeroPad(comboBox_durationInHours.Text, 2) + ZeroPad(comboBox_durationInMinutes.Text, 2);
-                _selectedOriginator = MessageTypes.Originators.FirstOrDefault(y => y.Name == comboOriginator.Text);
-                _selectedAlertCode = MessageTypes.AlertCodes.FirstOrDefault(y => y.Name == comboCode.Text);
-                var newMessage = new EASMessage(_selectedOriginator.Id, _selectedAlertCode.Id, Regions, _length, _start, _senderId);
-
-                MemoryStream audioStream = EASEncoder.EASEncoder.GetMemoryStreamFromNewMessage(newMessage, (bool)chkEbsTones.IsChecked, (bool)chkNwsTone.IsChecked, formatAnnouncement(txtAnnouncement.Text));
-                string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "temp.wav");
-                FileStream faudio_stream = new FileStream(path, FileMode.OpenOrCreate);
-                audioStream.WriteTo(faudio_stream);
-                faudio_stream.Close();
-                audioStream.Close();
+                string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "preview.wav");
+                ExportAudio(path);
                 dialogHost_PreviewWindow.IsOpen = true;
                 preview_MediaElement.Source = new Uri(path);
                 timer.Enabled = true;
                 preview_MediaElement.LoadedBehavior = MediaState.Play; //Theoretically, this should make the MediaElement autoplay when it loads the file
-                                                                       //preview_MediaElement.Play();
+                //preview_MediaElement.Play();
             }
             catch (Exception)
             {
@@ -464,35 +529,77 @@ namespace EASEncoder_GUI_WPF
 
         private void appMenu_saveAlertFile_Click(object sender, RoutedEventArgs e)
         {
-            //DialogResult result = saveAlertFileDialog.ShowDialog();
-            //if (result == System.Windows.Forms.DialogResult.OK)
-            //{
-            //}
+            DialogResult result = saveAlertFileDialog.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                DirectoryInfo tempDir = Directory.CreateDirectory("temp");
+                var serializer = new SharpSerializer();
+                WriteToBinaryFile(System.IO.Path.Combine(tempDir.FullName, "regions"), Regions);
+                CautiousSerialize(alertStart_TimePicker.SelectedTime, System.IO.Path.Combine(tempDir.FullName, "startTime"));
+                CautiousSerialize(alertStart_DatePicker.SelectedDate, System.IO.Path.Combine(tempDir.FullName, "startDate"));
+                CautiousSerialize(comboOriginator.SelectedIndex, System.IO.Path.Combine(tempDir.FullName, "id_originator"));
+                CautiousSerialize(comboCode.SelectedIndex, System.IO.Path.Combine(tempDir.FullName, "id_code"));
+                CautiousSerialize(alertStart_DatePicker.SelectedDate, System.IO.Path.Combine(tempDir.FullName, "startDate"));
+                CautiousSerialize(alertStart_TimePicker.SelectedTime, System.IO.Path.Combine(tempDir.FullName, "startTime"));
+                CautiousSerialize(comboBox_durationInHours.SelectedIndex, MakeFilename("dHours"));
+                CautiousSerialize(comboBox_durationInMinutes.SelectedIndex, MakeFilename("dMinutes"));
+                CautiousSerialize(txtSender.Text, MakeFilename("senderId"));
+                CautiousSerialize(chkEbsTones.IsChecked, MakeFilename("ebsTones"));
+                CautiousSerialize(chkNwsTone.IsChecked, MakeFilename("nwsTone"));
+                CautiousSerialize(txtAnnouncement.Text, MakeFilename("message"));
+
+                if (File.Exists(saveAlertFileDialog.FileName))
+                {
+                    File.Delete(saveAlertFileDialog.FileName);
+                }
+                ZipFile.CreateFromDirectory("temp", saveAlertFileDialog.FileName, CompressionLevel.NoCompression, false);
+                DeleteTempDir();
+            }
+        }
+
+        string MakeFilename(string filename)
+        {
             DirectoryInfo tempDir = Directory.CreateDirectory("temp");
-            var serializer = new SharpSerializer();
-            WriteToBinaryFile(System.IO.Path.Combine(tempDir.FullName, "regions"), Regions);
-            CautiousSerialize(alertStart_TimePicker.SelectedTime, System.IO.Path.Combine(tempDir.FullName, "startTime"));
-            CautiousSerialize(alertStart_DatePicker.SelectedDate, System.IO.Path.Combine(tempDir.FullName, "startDate"));
-            CautiousSerialize(comboOriginator.SelectedIndex, System.IO.Path.Combine(tempDir.FullName, "id_originator"));
-            CautiousSerialize(comboCode.SelectedIndex, System.IO.Path.Combine(tempDir.FullName, "id_code"));
-            //WriteToBinaryFile(System.IO.Path.Combine(tempDir.FullName, "startTime"), alertStart_TimePicker);
-            //WriteToBinaryFile(System.IO.Path.Combine(tempDir.FullName, "startDate"), alertStart_DatePicker);
+            return System.IO.Path.Combine(tempDir.FullName, filename);
         }
 
         private void appMenu_loadAlertFile_Click(object sender, RoutedEventArgs e)
         {
             //alertStart_TimePicker = ReadFromBinaryFile<TimePicker>("temp/startTime");
-            string tempDir = "temp/";
-            var serializer = new SharpSerializer();
-            alertStart_TimePicker.SelectedTime = (DateTime?)serializer.Deserialize(System.IO.Path.Combine(tempDir, "startTime"));
-            alertStart_DatePicker.SelectedDate = (DateTime?)serializer.Deserialize(System.IO.Path.Combine(tempDir, "startDate"));
-            comboOriginator.SelectedIndex = (int)serializer.Deserialize(System.IO.Path.Combine(tempDir, "id_originator"));
-            comboCode.SelectedIndex = (int)serializer.Deserialize(System.IO.Path.Combine(tempDir, "temp/id_code"));
+            if (loadAlertFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string tempDir = "temp/";
+                DeleteTempDir(); //Just in case...
+                ZipFile.ExtractToDirectory(loadAlertFileDialog.FileName, tempDir);
+                var serializer = new SharpSerializer();
+                alertStart_TimePicker.SelectedTime = (DateTime?)serializer.Deserialize(System.IO.Path.Combine(tempDir, "startTime"));
+                alertStart_DatePicker.SelectedDate = (DateTime?)serializer.Deserialize(System.IO.Path.Combine(tempDir, "startDate"));
+                comboOriginator.SelectedIndex = (int)serializer.Deserialize(System.IO.Path.Combine(tempDir, "id_originator"));
+                comboCode.SelectedIndex = (int)serializer.Deserialize(System.IO.Path.Combine(tempDir, "id_code"));
+                Regions = ReadFromBinaryFile<List<SAMERegion>>(System.IO.Path.Combine(tempDir, "regions"));
+                comboBox_durationInHours.SelectedIndex = (int)serializer.Deserialize(MakeFilename("dHours"));
+                comboBox_durationInMinutes.SelectedIndex = (int)serializer.Deserialize(MakeFilename("dMinutes"));
+                txtSender.Text = (string)serializer.Deserialize(MakeFilename("senderId"));
+                chkEbsTones.IsChecked = (bool)serializer.Deserialize(MakeFilename("ebsTones"));
+                chkNwsTone.IsChecked = (bool)serializer.Deserialize(MakeFilename("nwsTone"));
+                txtAnnouncement.Text = (string)serializer.Deserialize(MakeFilename("message"));
+                var bindingList = new BindingList<SAMERegion>(Regions);
+                var source = new BindingSource(bindingList, null);
+                datagridRegions.ItemsSource = source;
+                DeleteTempDir();
+            }
+        }
 
-            Regions = ReadFromBinaryFile<List<SAMERegion>>(System.IO.Path.Combine(tempDir, "regions"));
-            var bindingList = new BindingList<SAMERegion>(Regions);
-            var source = new BindingSource(bindingList, null);
-            datagridRegions.ItemsSource = source;
+        void DeleteTempDir()
+        {
+            try
+            {
+                Directory.Delete("temp", true);
+            }
+            catch
+            {
+
+            }
         }
 
         private void appMenu_newAlert_Click(object sender, RoutedEventArgs e)
@@ -502,7 +609,10 @@ namespace EASEncoder_GUI_WPF
 
         private void button_saveAlertToWaveFile_Click(object sender, RoutedEventArgs e)
         {
-
+            if (saveAudioOutputFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ExportAudio(saveAudioOutputFileDialog.FileName);
+            }
         }
 
         void CautiousRun(Action method)

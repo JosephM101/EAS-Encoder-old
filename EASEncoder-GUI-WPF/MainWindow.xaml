@@ -78,7 +78,7 @@
             <materialDesign:Snackbar x:Name="main_snackbar" HorizontalAlignment="Stretch" Height="auto" VerticalAlignment="Stretch"/>
         </DockPanel>
         <Grid Margin="4,70,-1.4,0" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
-            <StackPanel Orientation="Horizontal" Width="auto">
+            <StackPanel x:Name="sPanel" Orientation="Horizontal" Width="auto">
                 <StackPanel Orientation="Vertical" Width="auto" Margin="8,0,0,0" VerticalAlignment="Stretch" >
                     <GroupBox x:Name="groupBox_alertIdentifier" Header="Alert Identifier Configuration" HorizontalAlignment="Stretch" Height="auto" Margin="0" VerticalAlignment="Top" Width="auto" Style="{DynamicResource MaterialDesignCardGroupBox}">
                         <StackPanel Orientation="Vertical">
