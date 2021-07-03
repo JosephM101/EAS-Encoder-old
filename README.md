@@ -1,2 +1,2 @@
 # EAS-Encoder
- Forked from SotaJoe's "EAS-Encoder" repository; introduces improved functionality and GUI to the project
+ Forked from SotaJoe's "EAS-Encoder" repository; introduces improved functionality and a refreshed GUI to the project
