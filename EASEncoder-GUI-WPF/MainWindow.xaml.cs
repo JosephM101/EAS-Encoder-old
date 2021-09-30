@@ -697,5 +697,10 @@ namespace EASEncoder_GUI_WPF
         {
             dialogHost_PreviewWindow.IsOpen = false;
         }
+
+        private void appMenu_gSettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            dialogHost_settings.IsOpen = true;
+        }
     }
 }

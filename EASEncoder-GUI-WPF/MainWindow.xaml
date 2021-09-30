@@ -16,27 +16,6 @@
         mc:Ignorable="d"
         Title="EAS Encoder" Height="720" Width="946.4" MinWidth="920" MinHeight="720">
     <Grid>
-        <!--#region Dialogs-->
-        <!-- AppExit dialog -->
-        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_exitWithoutSaving">
-            <materialDesign:DialogHost.DialogContent>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,16,8,4">
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                        <materialDesign:PackIcon Kind="Warning" Width="32" Height="32" Margin="8,0,0,0"/>
-                        <StackPanel Margin="16,0,8,0">
-                            <TextBlock Text="Exit?" FontSize="18" VerticalAlignment="Center" Width="auto" TextWrapping="Wrap" Margin="0,6,0,8"/>
-                            <TextBlock Text="Are you sure you want to exit? Any unsaved changes will be lost." VerticalAlignment="Center" Margin="0,0,8,0" Width="256" TextWrapping="Wrap"/>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <Button x:Name="exitDialog_Ignore" Content="NO" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
-                        <Button x:Name="exitDialog_Confirm" Content="YES" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Click="exitDialog_Confirm_Click" />
-                    </StackPanel>
-                </StackPanel>
-            </materialDesign:DialogHost.DialogContent>
-        </materialDesign:DialogHost>
-        <!--#endregion-->
-
         <!-- Main window -->
         <DockPanel VerticalAlignment="Bottom">
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
@@ -132,7 +111,7 @@
                                                                 <MenuItem x:Name="addItemDialog_menu_checkBox_keepDialogOpen" Header="Keep dialog open" IsCheckable="True"/>
                                                                 <Separator/>
                                                                 <Button x:Name="addItemDialog_menuButton_addWholeState" Content="Add the whole state" Click="addItemDialog_menuButton_addWholeState_Click"/>
-                                                                <Button x:Name="addItemDialog_menuButton_addTheWorld" Content="Add the world!" Click="addItemDialog_menuButton_addTheWorld_Click"/>
+                                                                <Button x:Name="addItemDialog_menuButton_addTheWorld" Content="Add the world! (Experimental)" Click="addItemDialog_menuButton_addTheWorld_Click"/>
                                                             </StackPanel>
                                                         </materialDesign:PopupBox>
                                                         <Button x:Name="button_dialogCancel" Content="CANCEL" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" />
@@ -167,9 +146,11 @@
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PopupBox StaysOpen="False">
                     <StackPanel>
-                        <Button x:Name="appMenu_newAlert" Content="New" Click="appMenu_newAlert_Click"/>
+                        <Button x:Name="appMenu_newAlert" Content="New alert" Click="appMenu_newAlert_Click"/>
                         <Button x:Name="appMenu_loadAlertFile" Content="Load alert file" Click="appMenu_loadAlertFile_Click"/>
                         <Button x:Name="appMenu_saveAlertFile" Content="Save alert file" Click="appMenu_saveAlertFile_Click"/>
+                        <Separator/>
+                        <!-- <Button x:Name="appMenu_settingsButton" Content="Settings" Click="appMenu_gSettingsButton_Click"/> -->
                         <Separator/>
                         <Button x:Name="appMenu_Exit" Content="Exit" Click="appMenu_Exit_Click"/>
                     </StackPanel>
@@ -177,6 +158,47 @@
                 <TextBlock VerticalAlignment="Center" Margin="16 0 0 0" FontSize="18" HorizontalAlignment="Center" Padding="0,2,0,0"><Run Text="EAS Encoder"/></TextBlock>
             </StackPanel>
         </materialDesign:ColorZone>
+
+        <!--#region Dialogs-->
+        <!-- AppExit dialog -->
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_exitWithoutSaving">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,16,8,4">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <materialDesign:PackIcon Kind="Warning" Width="32" Height="32" Margin="8,0,0,0"/>
+                        <StackPanel Margin="16,0,8,0">
+                            <TextBlock Text="Exit?" FontSize="18" VerticalAlignment="Center" Width="auto" TextWrapping="Wrap" Margin="0,6,0,8"/>
+                            <TextBlock Text="Are you sure you want to exit? Any unsaved changes will be lost." VerticalAlignment="Center" Margin="0,0,8,0" Width="256" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Button x:Name="exitDialog_Ignore" Content="NO" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
+                        <Button x:Name="exitDialog_Confirm" Content="YES" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Click="exitDialog_Confirm_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <!-- AppSettings dialog-->
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="dialogHost_settings">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="8,16,8,4">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                        <StackPanel Margin="16,0,8,0">
+                            <TextBlock Text="Settings" FontSize="18" VerticalAlignment="Center" Width="auto" TextWrapping="Wrap" Margin="0,4,0,8"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <CheckBox x:Name="setting_normalizeAudioOutput"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Button x:Name="settingsDialog_Cancel" Content="Cancel" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
+                        <Button x:Name="settingsDialog_Confirm" Content="Done" Margin="4" Style="{StaticResource MaterialDesignFlatButton}" Click="exitDialog_Confirm_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <!--#endregion-->
+
     </Grid>
 </Window>
 
