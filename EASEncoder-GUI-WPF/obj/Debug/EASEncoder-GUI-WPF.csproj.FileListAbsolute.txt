@@ -17,7 +17,6 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\System.
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\System.Security.AccessControl.xml
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\bin\Debug\System.Security.Principal.Windows.xml
-C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEncoder-GUI-WPF.csprojAssemblyReference.cache
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\MainWindow.g.cs
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\App.g.cs
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEncoder-GUI-WPF_MarkupCompile.cache
@@ -32,3 +31,4 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEnco
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEncoder-GUI-WPF.csproj.CopyComplete
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEncoder-GUI-WPF.exe
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEncoder-GUI-WPF.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder-GUI-WPF\obj\Debug\EASEncoder-GUI-WPF.csproj.AssemblyReference.cache

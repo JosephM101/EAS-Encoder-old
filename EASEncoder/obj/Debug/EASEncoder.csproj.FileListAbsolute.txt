@@ -43,3 +43,4 @@ C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.cspr
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.CopyComplete
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.dll
 C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.pdb
+C:\Users\jmig2\Documents\GitHub\EAS-Encoder\EASEncoder\obj\Debug\EASEncoder.csproj.AssemblyReference.cache
