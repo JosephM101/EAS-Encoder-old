@@ -1,13 +1,13 @@
-﻿using System;
+﻿using EASEncoder.Models;
+using NAudio.Lame;
+using NAudio.Wave;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Speech.AudioFormat;
 using System.Speech.Synthesis;
 using System.Text;
-using EASEncoder.Models;
-using NAudio.Lame;
-using NAudio.Wave;
 
 namespace EASEncoder
 {
@@ -27,7 +27,8 @@ namespace EASEncoder
         private static byte[] _announcementStream;
         private static int _announcementSamples;
         private static readonly int totalSilenceSamples = 176400;
-        
+
+        private static readonly int defaultVolume = 5000;
         
         private static int _totalSamples;
         private static bool _useEbsTone = true;
@@ -46,7 +47,9 @@ namespace EASEncoder
 
             _headerSamples = new int[0];
             var byteArray = Encoding.Default.GetBytes(message.ToSameHeaderString());
-            var volume = 5000;
+
+            //var volume = 5000;
+            var volume = defaultVolume;
 
             var byteSpec = new List<SameWavBit>();
             byte thisByte;
@@ -75,7 +78,9 @@ namespace EASEncoder
 
             _eomSamples = new int[0];
             byteArray = Encoding.Default.GetBytes(message.ToSameEndOfMessageString());
-            volume = 5000;
+
+            //volume = 5000;
+            volume = defaultVolume;
 
             byteSpec = new List<SameWavBit>();
 
@@ -132,7 +137,9 @@ namespace EASEncoder
 
             _headerSamples = new int[0];
             var byteArray = Encoding.Default.GetBytes(message.ToSameHeaderString());
-            var volume = 5000;
+
+            //var volume = 5000;
+            var volume = defaultVolume;
 
             var byteSpec = new List<SameWavBit>();
             byte thisByte;
@@ -162,7 +169,9 @@ namespace EASEncoder
 
             _eomSamples = new int[0];
             byteArray = Encoding.Default.GetBytes(message.ToSameEndOfMessageString());
-            volume = 5000;
+
+            //volume = 5000;
+            volume = defaultVolume;
 
             byteSpec = new List<SameWavBit>();
 
@@ -438,7 +447,11 @@ namespace EASEncoder
             var writer = new BinaryWriter(stream);
             var samplesPerSecond = 44100;
             var samples = samplesPerSecond*2;
-            double ampl = 5000;
+
+            //double ampl = 5000;
+            double ampl = defaultVolume;
+
+
             var concert = 1.0;
             for (var i = 0; i < samples/2; i++)
             {
@@ -468,7 +481,10 @@ namespace EASEncoder
             var writer = new BinaryWriter(stream);
             var samplesPerSecond = 44100;
             var samples = samplesPerSecond*2;
-            double ampl = 5000;
+
+            //double ampl = 5000;
+            double ampl = defaultVolume;
+
             var concert = 1.0;
             for (var i = 0; i < samples/2; i++)
             {
