@@ -151,7 +151,7 @@
                         <Button x:Name="appMenu_saveAlertFile" Content="Save alert file" Click="appMenu_saveAlertFile_Click"/>
                         <Separator/>
                         <!-- <Button x:Name="appMenu_settingsButton" Content="Settings" Click="appMenu_gSettingsButton_Click"/> -->
-                        <Separator/>
+                        <!-- <Separator/> -->
                         <Button x:Name="appMenu_Exit" Content="Exit" Click="appMenu_Exit_Click"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
