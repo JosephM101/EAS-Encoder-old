@@ -50,10 +50,12 @@ namespace EASEncoder_GUI_WPF
         /// File extension for EAS Encoder documents
         /// </summary>
         string EAS_FileExtension = "easf";
+
         /// <summary>
         /// Filter for SaveFileDialog / OpenFileDialog (EAS File Extension)
         /// </summary>
         string EAS_FileDialogFilterString; //Assigned later
+
         SaveFileDialog saveAlertFileDialog = new SaveFileDialog();
         SaveFileDialog saveAudioOutputFileDialog = new SaveFileDialog();
         OpenFileDialog loadAlertFileDialog = new OpenFileDialog();
